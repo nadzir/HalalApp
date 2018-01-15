@@ -1,9 +1,9 @@
 {
-  "name": "testCamera",
-  "displayName": "testCamera",
+  "name": "HalalApp",
+  "displayName": "HalalApp",
   "expo": {
-    "name": "My app",
-    "slug": "my-app",
+    "name": "HalalApp",
+    "slug": "HalalApp",
     "sdkVersion": "24.0.0",
     "privacy": "private"
   }
