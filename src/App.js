@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Camera from 'react-native-camera';
-import ImageResizer from 'react-native-image-resizer';
 import {
   Platform,
   StyleSheet,
@@ -8,56 +7,8 @@ import {
   View,
   Dimensions,
 } from 'react-native';
-import RNFetchBlob from 'react-native-fetch-blob';
-
-// Google API recommended image size is 640 by 480
-function resizeImage(path, width = 640, height = 480) {
-  return new Promise((resolve, reject) => {
-    ImageResizer.createResizedImage(path, width, height, 'JPEG', 80)
-      .then((resizedImage) => {
-        resolve(resizedImage);
-      }).catch((err) => {
-        console.error('Error in ImageResizer');
-        console.log(err);
-        reject(err);
-      });
-  });
-}
-
-async function getLabel(imageBase64) {
-  return new Promise((resolve, reject) => {
-    fetch('https://vision.googleapis.com/v1/images:annotate?key=AIzaSyCIureBbvR-bux0r-AGLCgFnsJtOvKgygs', {
-      method: 'POST',
-      body: JSON.stringify({
-        requests: [
-          {
-            image: {
-              content: imageBase64,
-            },
-            features: [
-              {
-                type: 'TEXT_DETECTION',
-              },
-            ],
-          },
-        ],
-      }),
-    }).then((response) => {
-      resolve(response);
-    });
-  });
-}
-
-function convertImageToBase64(image) {
-  return new Promise((resolve, reject) => {
-    const uri = image.uri;
-    RNFetchBlob.fs.readFile(uri, 'base64')
-      .then((data) => {
-        resolve(data);
-        // googleImageAPI(data);
-      });
-  });
-}
+import { resizeImage, convertImageToBase64 } from './utility';
+import { getLabel } from './imageProcessing';
 
 export default class App extends Component {
   takePicture() {
