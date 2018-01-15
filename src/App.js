@@ -1,9 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
 import Camera from 'react-native-camera';
 import ImageResizer from 'react-native-image-resizer';
@@ -12,7 +6,7 @@ import {
   StyleSheet,
   Text,
   View,
-  Dimensions
+  Dimensions,
 } from 'react-native';
 import RNFetchBlob from 'react-native-fetch-blob';
 
@@ -21,13 +15,13 @@ function resizeImage(path, width = 640, height = 480) {
   return new Promise((resolve, reject) => {
     ImageResizer.createResizedImage(path, width, height, 'JPEG', 80)
       .then((resizedImage) => {
-        resolve(resizedImage)
+        resolve(resizedImage);
       }).catch((err) => {
         console.error('Error in ImageResizer');
-        console.log(err)
+        console.log(err);
         reject(err);
       });
-  })
+  });
 }
 
 async function getLabel(imageBase64) {
@@ -35,19 +29,19 @@ async function getLabel(imageBase64) {
     fetch('https://vision.googleapis.com/v1/images:annotate?key=AIzaSyCIureBbvR-bux0r-AGLCgFnsJtOvKgygs', {
       method: 'POST',
       body: JSON.stringify({
-        'requests': [
+        requests: [
           {
-            'image': {
-              'content': imageBase64
+            image: {
+              content: imageBase64,
             },
-            'features': [
+            features: [
               {
-                'type': 'TEXT_DETECTION'
-              }
-            ]
-          }
-        ]
-      })
+                type: 'TEXT_DETECTION',
+              },
+            ],
+          },
+        ],
+      }),
     }).then((response) => {
       resolve(response);
     });
@@ -65,22 +59,22 @@ function convertImageToBase64(image) {
   });
 }
 
-export default class App extends Component<{}> {
-
+export default class App extends Component {
   takePicture() {
     console.log('Capturing camera');
     this.camera.capture()
       .then((data) => {
         console.log(data.path);
         console.log('resizing image');
-        return resizeImage(data.path)
+        return resizeImage(data.path);
       }).then((resizedImage) => {
-        console.log('converting to base64')
-        return convertImageToBase64(resizedImage)
+        console.log('converting to base64');
+        return convertImageToBase64(resizedImage);
       }).then((image64) => {
-        console.log('getting label')
-        return getLabel(image64)
-      }).then((data) => {
+        console.log('getting label');
+        return getLabel(image64);
+      })
+      .then((data) => {
         console.log(data);
       })
       .catch(err => console.error(err));
@@ -93,9 +87,10 @@ export default class App extends Component<{}> {
           this.camera = cam;
         }}
         style={styles.preview}
-        aspect={Camera.constants.Aspect.fill}>
+        aspect={Camera.constants.Aspect.fill}
+      >
         <Text style={styles.capture} onPress={this.takePicture.bind(this)}>[CAPTURE]
-           </Text>
+        </Text>
       </Camera>
       // <View style={styles.container}>
       //   <Text style={styles.welcome}>
@@ -134,7 +129,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
     alignItems: 'center',
     height: Dimensions.get('window').height,
-    width: Dimensions.get('window').width
+    width: Dimensions.get('window').width,
   },
   capture: {
     flex: 0,
@@ -142,6 +137,6 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     color: '#000',
     padding: 10,
-    margin: 40
-  }
+    margin: 40,
+  },
 });
