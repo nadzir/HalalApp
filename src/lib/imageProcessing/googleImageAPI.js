@@ -10,16 +10,25 @@ export const getLabel = imageBase64 =>
             },
             features: [
               {
-                type: 'LABEL_DETECTION',
+                type: 'LOGO_DETECTION',
+                // maxResults: 4,
+              },
+              {
+                type: 'TEXT_DETECTION',
+                // maxResults: 4,
               },
             ],
           },
         ],
       }),
     }).then((response) => {
-      resolve(response);
+      console.log(response);
+      const bodyText = JSON.parse(response._bodyText);
+      console.log(bodyText);
+      resolve(bodyText);
     });
   });
+
 
 export default getLabel;
 
