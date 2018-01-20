@@ -14,7 +14,6 @@ export const HomeView = () => (
     >
       <Button
         backgroundColor="#03A9F4"
-        fontFamily="Lato"
         buttonStyle={{
           borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0,
         }}
