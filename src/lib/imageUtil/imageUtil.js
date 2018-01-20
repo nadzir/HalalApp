@@ -17,11 +17,11 @@ export const resizeImage = (path, width = 640, height = 480) =>
 
 export const convertImageToBase64 = image =>
   new Promise((resolve, reject) => {
-    const uri = image.uri;
-    RNFetchBlob.fs.readFile(uri, 'base64')
+    console.log(image);
+    RNFetchBlob.fs.readFile(image, 'base64')
       .then((data) => {
         resolve(data);
       // googleImageAPI(data);
-      });
+      }).catch(err => reject(err));
   });
 
