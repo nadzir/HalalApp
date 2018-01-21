@@ -1,22 +1,48 @@
-import { find } from 'lodash';
-import halalList from '../../../data/halalList.json';
+// From MUIS singapore
+import foodPlaceList from '../../../data/foodPlaceList.json';
+// From Muslim consumer group product list
+import brandList from '../../../data/brandList.json';
 import stopWord from '../../../data/stopWord.json';
+import diacriticsRemovalMap from '../../../data/diacriticsRemovalMap.json';
 
 export const halalCheckType = {
   LOGO: 'LOGO',
   TEXT: 'TEXT',
 };
 
+function isHalalFromFoodPlace(foodPlace) {
+  return foodPlaceList.includes(foodPlace);
+}
+
+function isHalalFromBrand(brand) {
+  return Object.keys(brandList).some((k) => {
+    const lowerCaseBrand = brandList[k].ProductBrand.toLowerCase();
+    const halalStatusBrand = brandList[k].HalalStatus;
+    return lowerCaseBrand.startsWith(brand) && halalStatusBrand === 'halal';
+  });
+}
+
 function isHalalLogo (query) {
-  return halalList.includes(query);
+  return isHalalFromFoodPlace(query) || isHalalFromBrand(query);
 }
 
 function isHalalText (query) {
-  return find(halalList, o => o.toLowerCase().includes(query));
+  return false;
+}
+
+function removeDiacritics (str) {
+  diacriticsRemovalMap.map((d) => { 
+    str = str.replace(d.letters, d.base); 
+    return true;
+  });
+  return str;
 }
 
 export const isHalal = (type, query) => {
-  const strippedQuery = query.replace(/[^\w\s]/gi, '').toLowerCase();
+  const strippedQuery = removeDiacritics(query)
+    .replace(/[^\w\s]/gi, '')
+    .toLowerCase();
+
   if (stopWord.includes(strippedQuery)) return false;
   switch (type) {
   case halalCheckType.LOGO: return isHalalLogo(strippedQuery);

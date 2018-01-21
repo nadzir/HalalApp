@@ -79,7 +79,7 @@ export class CameraView extends Component {
             key: item.description,
             title: item.description,
             boundingPoly: item.boundingPoly,
-            halal: isHalal(halalCheckType.TEXT, item.description) ? 'Halal' : 'Not halal',
+            halal: isHalal(halalCheckType.LOGO, item.description) ? 'Halal' : 'Not halal',
             type: 'Logo',
           })).value();
 
