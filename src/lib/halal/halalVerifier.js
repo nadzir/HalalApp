@@ -2,6 +2,8 @@
 import foodPlaceList from '../../../data/foodPlaceList.json';
 // From Muslim consumer group product list
 import brandList from '../../../data/brandList.json';
+// From http://www.singaporehalaldirectory.com/company/list/all/1
+import companyList from '../../../data/companyList.json';
 import stopWord from '../../../data/stopWord.json';
 import diacriticsRemovalMap from '../../../data/diacriticsRemovalMap.json';
 
@@ -14,6 +16,10 @@ function isHalalFromFoodPlace(foodPlace) {
   return foodPlaceList.includes(foodPlace);
 }
 
+function isHalalFromCompany(company) {
+  return companyList.includes(company);
+}
+
 function isHalalFromBrand(brand) {
   return Object.keys(brandList).some((k) => {
     const lowerCaseBrand = brandList[k].ProductBrand.toLowerCase();
@@ -23,7 +29,9 @@ function isHalalFromBrand(brand) {
 }
 
 function isHalalLogo (query) {
-  return isHalalFromFoodPlace(query) || isHalalFromBrand(query);
+  return isHalalFromCompany(query) ||
+         isHalalFromFoodPlace(query) ||
+         isHalalFromBrand(query);
 }
 
 function isHalalText (query) {
@@ -31,8 +39,8 @@ function isHalalText (query) {
 }
 
 function removeDiacritics (str) {
-  diacriticsRemovalMap.map((d) => { 
-    str = str.replace(d.letters, d.base); 
+  diacriticsRemovalMap.map((d) => {
+    str = str.replace(d.letters, d.base);
     return true;
   });
   return str;
