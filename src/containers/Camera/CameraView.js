@@ -1,21 +1,39 @@
-import Camera from 'react-native-camera';
-import { chain, uniq, sortBy, reverse } from 'lodash';
-import React, { Component } from 'react';
-import { View, StyleSheet, FlatList, ActivityIndicator } from 'react-native';
-import { Button, List, ListItem } from 'react-native-elements';
-import { resizeImage, convertImageToBase64 } from '../../lib/imageUtil/index';
-import { getLabel } from '../../lib/imageProcessing';
-import { isHalal, halalCheckType } from '../../lib/halal';
+import Camera from 'react-native-camera'
+import { chain, uniq, sortBy, reverse } from 'lodash'
+import React, { Component } from 'react'
+import { Image, View, StyleSheet, FlatList, ActivityIndicator } from 'react-native'
+import { Button, List, ListItem } from 'react-native-elements'
+import { resizeImage, convertImageToBase64 } from '../../lib/imageUtil/index'
+import { getLabel } from '../../lib/imageProcessing'
+import { isHalal, halalCheckType } from '../../lib/halal'
+import Svg, {
+  Circle,
+  Ellipse,
+  G,
+  LinearGradient,
+  RadialGradient,
+  Line,
+  Path,
+  Polygon,
+  Polyline,
+  Rect,
+  Symbol,
+  Text,
+  Use,
+  Defs,
+  Stop
+} from 'react-native-svg'
+import Dimensions from 'Dimensions'
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: 'row',
+    flexDirection: 'row'
   },
   preview: {
     flex: 1,
     justifyContent: 'flex-end',
-    alignItems: 'center',
+    alignItems: 'center'
   },
   capture: {
     flex: 0,
@@ -26,99 +44,135 @@ const styles = StyleSheet.create({
     height: 70,
     width: 70,
     borderColor: 'rgba(0, 0, 0, 0.3)',
-    borderWidth: 15,
+    borderWidth: 15
   },
   loadingMsg: {
     position: 'absolute',
     top: '50%',
-    left: '50%',
+    left: '50%'
   },
   loadingText: {
     fontSize: 18,
     padding: 5,
     borderRadius: 20,
     backgroundColor: 'white',
-    margin: 30,
+    margin: 30
   },
   spinner: {
-    marginBottom: 50,
-  },
-});
+    marginBottom: 50
+  }
+})
 
 export class CameraView extends Component {
-  constructor(props) {
-    super(props);
+  constructor (props) {
+    super(props)
 
     this.state = {
       list: [],
       loading: false,
-    };
+      SCREEN_WIDTH: Dimensions.get('window').width,
+      SCREEN_HEIGHT: Dimensions.get('window').height,
+      base64Image: null,
+      image: null
+    }
   }
 
   takePicture () {
-    if (this.state.loading) return;
-    console.log('Capturing camera');
-    this.setState({ loading: true });
+    if (this.state.loading) return
+    console.log('Capturing camera')
+    this.setState({ loading: true })
     this.camera.capture()
       .then((data) => {
-        console.log('resizing image');
-        return resizeImage(data.path);
+        console.log('resizing image')
+        console.log(data)
+        this.setState({image: data})
+        convertImageToBase64(data.path).then(data => this.setState({base64Image: data}))
+        return resizeImage(data.path)
       }).then((resizedImage) => {
-        console.log('converting to base64');
-        return convertImageToBase64(resizedImage.path);
+        console.log('converting to base64')
+        return convertImageToBase64(resizedImage.path)
       }).then((image64) => {
-        console.log('getting label');
-        return getLabel(image64);
+        console.log('getting label')
+        console.log(image64)
+        // this.setState({base64Image: image64})
+        return getLabel(image64)
       })
       .then((data) => {
-        const logos = data && data.responses && data.responses[0].logoAnnotations;
-        const text = data && data.responses && data.responses[0].textAnnotations;
+        const logos = data && data.responses && data.responses[0].logoAnnotations
+        const text = data && data.responses && data.responses[0].textAnnotations
 
         const logosList = chain(logos || [])
           .map(item => ({
             key: item.description,
             title: item.description,
-            boundingPoly: item.boundingPoly,
+            boundingPoly: item.boundingPoly.vertices.reduce((acc, pos) => `${acc + pos.x},${pos.y} `, ''),
             halal: isHalal(halalCheckType.LOGO, item.description) ? 'Halal' : 'Not halal',
-            type: 'Logo',
-          })).value();
+            type: 'Logo'
+          })).value()
 
         const textList = chain(text || [])
           .filter(item => item.description.length > 3 && item.description.length < 20)
           .map(item => ({
             key: item.description,
             title: item.description,
-            boundingPoly: item.boundingPoly,
+            boundingPoly: item.boundingPoly.vertices.reduce((acc, pos) => `${acc + pos.x},${pos.y} `, ''),
             halal: isHalal(halalCheckType.TEXT, item.description) ? 'Halal' : 'Not halal',
-            type: 'Text',
-          })).value();
+            type: 'Text'
+          })).value()
 
         const list = chain(logosList.concat(textList))
           .uniqBy('key')
           .sortBy(['halal', 'type'])
-          .value();
-        console.log(list);
-        this.setState({ list, loading: false });
+          .value()
+        console.log(list)
+        this.setState({ list, loading: false })
       })
-      .catch(err => console.error(err));
+      .catch(err => console.error(err))
   }
 
-  render() {
+  render () {
+    console.log('state', this.state.base64Image)
+    console.log('state2', this.state.image ? this.state.image.path : null)
+
     return (
       <View style={{ flex: 1, flexDirection: 'column', justifyContent: 'flex-end' }}>
+        {this.state.base64Image && this.state.base64Image &&
+        <Image
+          style={{height: 200, width: 500}}
+          source={{
+            isStatic: true,
+           // uri: 'data:image/jpeg;base64,' + this.state.base64image
+            // uri: this.state.base64image
+            uri: this.state.image.path}}
+           />
+        }
 
         <Camera
           ref={(cam) => {
-            this.camera = cam;
+            this.camera = cam
           }}
           style={styles.preview}
           aspect={Camera.constants.Aspect.fill}
           captureTarget={Camera.constants.CaptureTarget.disk}
         >
-          <ActivityIndicator size="large" color="#0000ff" animating={this.state.loading} />
+
+          <Svg
+            height='350'
+            width='450'
+            // viewBox="0 0 20 10"
+          >
+            {this.state.list.map(l =>
+              (<Polygon
+                points={l.boundingPoly}
+                fill='lime'
+                stroke='purple'
+                strokeWidth='1'
+              />))}
+          </Svg>
+          <ActivityIndicator size='large' color='#0000ff' animating={this.state.loading} />
           <List
             containerStyle={{
-              opacity: 0.9, height: 200, alignSelf: 'stretch',
+              opacity: 0.9, height: 200, alignSelf: 'stretch'
             }}
           >
             <FlatList
@@ -139,18 +193,18 @@ export class CameraView extends Component {
               marginLeft: 0,
               marginRight: 0,
               marginBottom: 0,
-              height: 50,
+              height: 50
             }}
             containerViewStyle={{
-              width: '100%',
+              width: '100%'
             }}
-            title="What is this?"
+            title='What is this?'
             onPress={this.takePicture.bind(this)}
           />
         </Camera>
       </View>
-    );
+    )
   }
 }
 
-export default CameraView;
+export default CameraView

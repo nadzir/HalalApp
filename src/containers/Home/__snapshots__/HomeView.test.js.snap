@@ -1,0 +1,190 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#231c16",
+      "flex": 1,
+      "flexDirection": "column",
+      "justifyContent": "center",
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "height": 100,
+      }
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {},
+          Object {
+            "fontSize": 50,
+          },
+          undefined,
+          undefined,
+          undefined,
+          Object {},
+          undefined,
+          undefined,
+          undefined,
+          undefined,
+          Object {
+            "color": "#F2F1EF",
+            "textAlign": "center",
+          },
+        ]
+      }
+    >
+      HalalGo
+    </Text>
+  </View>
+  <View
+    style={
+      Object {
+        "height": 100,
+      }
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {},
+          undefined,
+          undefined,
+          Object {
+            "fontSize": 35,
+          },
+          undefined,
+          undefined,
+          undefined,
+          Object {},
+          undefined,
+          undefined,
+          Object {
+            "color": "#F2F1EF",
+            "textAlign": "center",
+          },
+        ]
+      }
+    >
+      One Stop Halal Guide
+    </Text>
+  </View>
+  <View>
+    <View
+      disabled={false}
+      onLongPress={[Function]}
+      onPress={[Function]}
+      style={
+        Array [
+          Object {
+            "shadowColor": "rgba(0,0,0, .4)",
+            "shadowOffset": Object {
+              "height": 1,
+              "width": 1,
+            },
+            "shadowOpacity": 1,
+            "shadowRadius": 1,
+          },
+          Object {
+            "alignItems": "center",
+            "borderRadius": 30,
+            "flexDirection": "row",
+            "justifyContent": "center",
+            "margin": 7,
+          },
+          Object {
+            "paddingBottom": 14,
+            "paddingTop": 14,
+          },
+          false,
+          false,
+          Object {
+            "backgroundColor": "#3b5998",
+          },
+          undefined,
+          undefined,
+        ]
+      }
+      underlayColor="#3b5998"
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "center",
+          }
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={false}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {
+                "color": "white",
+                "fontSize": 24,
+              },
+              Array [
+                undefined,
+              ],
+              Object {
+                "fontFamily": "FontAwesome",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+            ]
+          }
+        >
+          
+        </Text>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Array [
+              Object {},
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              undefined,
+              Array [
+                Object {
+                  "color": "white",
+                  "fontWeight": "bold",
+                  "marginLeft": 15,
+                },
+                undefined,
+                undefined,
+                undefined,
+                undefined,
+              ],
+            ]
+          }
+        >
+          Sign In With Facebook
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
