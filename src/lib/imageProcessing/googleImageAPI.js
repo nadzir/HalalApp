@@ -6,29 +6,25 @@ export const getLabel = imageBase64 =>
         requests: [
           {
             image: {
-              content: imageBase64,
+              content: imageBase64
             },
             features: [
               {
-                type: 'LOGO_DETECTION',
+                type: 'LOGO_DETECTION'
                 // maxResults: 4,
               },
               {
-                type: 'TEXT_DETECTION',
+                type: 'TEXT_DETECTION'
                 // maxResults: 4,
-              },
-            ],
-          },
-        ],
-      }),
+              }
+            ]
+          }
+        ]
+      })
     }).then((response) => {
-      console.log(response);
-      const bodyText = JSON.parse(response._bodyText);
-      console.log(bodyText);
-      resolve(bodyText);
-    });
-  });
+      const bodyText = JSON.parse(response._bodyText)
+      resolve(bodyText)
+    }).catch(console.error)
+  })
 
-
-export default getLabel;
-
+export default getLabel

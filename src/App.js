@@ -1,9 +1,29 @@
-import { Router } from 'react-native-router-flux';
-import React from 'react';
-import AppRoutes from './routes';
+import { Router } from 'react-native-router-flux'
+import { Provider } from 'react-redux'
+import React, { Component } from 'react'
+import AppRoutes from './routes'
+import store from './redux/store'
 
-export default function AppContainer() {
-  return (
-    <Router scenes={AppRoutes} />
-  );
+export default class AppContainer extends Component {
+  constructor () {
+    super()
+    this.state = {
+      store: store
+    }
+  }
+  render () {
+    return (
+      <Provider store={this.state.store}>
+        <Router scenes={AppRoutes} />
+      </Provider>
+    )
+  }
 }
+// Cant be a refactored cause have error in hot reloading
+// export default function AppContainer () {
+//   return (
+//     <Provider store={store}>
+//       <Router scenes={AppRoutes} />
+//     </Provider>
+//   )
+// }

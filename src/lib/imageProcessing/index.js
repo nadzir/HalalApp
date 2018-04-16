@@ -1,2 +1,1 @@
-export * from './googleImageAPI';
-
+export * from './googleImageAPI'

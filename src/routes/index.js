@@ -1,19 +1,27 @@
-import React from 'react';
-import { Actions, Scene } from 'react-native-router-flux';
-import { HomeView } from '../containers/Home';
-import { CameraView } from '../containers/Camera';
+import React from 'react'
+import { Actions, Scene } from 'react-native-router-flux'
+import { HomeView } from '../containers/Home'
+import { CameraViewContainer } from '../containers/Camera'
+import { HalalFinderContainer } from '../containers/HalalFinder'
 
-export default Actions.create(<Scene key="root" hideNavBar="false" >
+export default Actions.create(<Scene key='root' hideNavBar='false' >
   <Scene
     hideNavBar
-    key="home"
+    key='home'
     component={HomeView}
-    analyticsDesc="AppLaunch: Launching App"
+    analyticsDesc='AppLaunch: Launching App'
   />
   <Scene
     hideNavBar
-    key="camera"
-    component={CameraView}
-    analyticsDesc="AppLaunch: Launching App"
+    key='camera'
+    component={CameraViewContainer}
+    analyticsDesc='CameraView'
   />
-</Scene>);
+  <Scene
+    hideNavBar
+    key='halalFinder'
+    component={HalalFinderContainer}
+    analyticsDesc='HalalFinder'
+  />
+
+</Scene>)

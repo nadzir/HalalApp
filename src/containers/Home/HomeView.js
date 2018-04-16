@@ -2,7 +2,7 @@ import React from 'react'
 import { View } from 'react-native'
 import { SocialIcon, Text } from 'react-native-elements'
 import { Actions } from 'react-native-router-flux'
-import { COLOURS } from '../../../config/colours'
+import { COLOURS } from '../../../config/constants'
 
 const outerViewStyle = {
   flexDirection: 'column',
