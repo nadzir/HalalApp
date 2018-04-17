@@ -3,7 +3,7 @@ import foodPlaceList from '../../../data/foodPlaceList.json'
 // From Muslim consumer group product list
 import brandList from '../../../data/brandList.json'
 // From http://www.singaporehalaldirectory.com/company/list/all/1
-// import companyList from '../../../data/companyList.json'
+import companyList from '../../../data/companyList.json'
 import stopWord from '../../../data/stopWord.json'
 import diacriticsRemovalMap from '../../../data/diacriticsRemovalMap.json'
 
@@ -12,37 +12,38 @@ export const halalCheckType = {
   TEXT: 'TEXT'
 }
 
-function isHalalFromFoodPlace (foodPlace) {
+export const isHalalFromFoodPlace = (foodPlace) => {
   return foodPlaceList.includes(foodPlace)
 }
 
-function isHalalFromCompany (company) {
-  return company.some((coy) => {
+export const isHalalFromCompany = (company) => {
+  return companyList.some((coy) => {
     const coyText = coy.replace(/[^\w\s]/gi, '')
     const lowerCaseText = coyText.toLowerCase()
-    return lowerCaseText.startsWith(company)
+    return lowerCaseText.startsWith(company.toLowerCase())
   })
 }
 
-function isHalalFromBrand (brand) {
+export const isHalalFromBrand = (brand) => {
   return Object.keys(brandList).some((k) => {
     const lowerCaseBrand = brandList[k].ProductBrand.toLowerCase()
     const halalStatusBrand = brandList[k].HalalStatus
-    return lowerCaseBrand.startsWith(brand) && halalStatusBrand === 'halal'
+    const lowerCaseInput = brand.toLowerCase()
+    return lowerCaseBrand.startsWith(lowerCaseInput) && halalStatusBrand === 'halal'
   })
 }
 
-function isHalalLogo (query) {
+export const isHalalLogo = (query) => {
   return isHalalFromCompany(query) ||
          isHalalFromFoodPlace(query) ||
          isHalalFromBrand(query)
 }
 
-function isHalalText (query) {
+export const isHalalText = (query) => {
   return false
 }
 
-function removeDiacritics (str) {
+export const removeDiacritics = (str) => {
   diacriticsRemovalMap.map((d) => {
     str = str.replace(d.letters, d.base)
     return true
