@@ -7,6 +7,12 @@ import { HalalFinderContainer } from '../containers/HalalFinder'
 export default Actions.create(<Scene key='root' hideNavBar='false' >
   <Scene
     hideNavBar
+    key='halalFinder'
+    component={HalalFinderContainer}
+    analyticsDesc='HalalFinder'
+  />
+  <Scene
+    hideNavBar
     key='home'
     component={HomeView}
     analyticsDesc='AppLaunch: Launching App'
@@ -17,11 +23,4 @@ export default Actions.create(<Scene key='root' hideNavBar='false' >
     component={CameraViewContainer}
     analyticsDesc='CameraView'
   />
-  <Scene
-    hideNavBar
-    key='halalFinder'
-    component={HalalFinderContainer}
-    analyticsDesc='HalalFinder'
-  />
-
 </Scene>)
