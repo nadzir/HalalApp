@@ -9,6 +9,6 @@ export const CircleButton = ({title, onPress}) => {
       containerViewStyle={styles.containerViewStyle}
       title={title}
       onPress={onPress}
-      />
+    />
   )
 }

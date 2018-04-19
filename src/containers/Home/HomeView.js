@@ -26,8 +26,8 @@ export const HomeView = () => (
         title='Sign In With Facebook'
         button
         type='facebook'
-        onPress={Actions.camera}
-    />
+        onPress={Actions.halalFinder}
+      />
     </View>
   </View>
 )

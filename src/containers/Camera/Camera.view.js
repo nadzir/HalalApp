@@ -27,7 +27,7 @@ export class CameraView extends Component {
           leftComponent={{ icon: 'menu', color: COLOURS.WHITE }}
           centerComponent={{ text: APP_NAME, style: { color: COLOURS.WHITE } }}
           outerContainerStyles={styles.outerContainerStyles}
-          />
+        />
         <Camera
           ref={(cam) => {
             this.camera = cam
@@ -35,7 +35,7 @@ export class CameraView extends Component {
           style={styles.camera}
           aspect={Camera.constants.Aspect.fill}
           captureTarget={Camera.constants.CaptureTarget.disk}
-          >
+        >
           <CircleButton
             onPress={this.takePicture.bind(this)}
           />

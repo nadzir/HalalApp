@@ -2,6 +2,7 @@ import { HalalFinder } from '../HalalFinder'
 import { connect } from 'react-redux'
 
 const mapStateToProps = (state) => {
+  console.log(state)
   return {
     imagePath: state.image.path,
     imageBase64: state.image.base64

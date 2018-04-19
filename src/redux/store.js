@@ -1,11 +1,23 @@
 import { createStore, applyMiddleware } from 'redux'
 import { composeWithDevTools } from 'remote-redux-devtools'
+import { persistStore, persistReducer } from 'redux-persist'
 import thunk from 'redux-thunk'
+import storage from 'redux-persist/lib/storage'
 
 import reducers from './reducers' // Import the reducer
 
-// Connect our store to the reducers
+const persistConfig = {
+  key: 'root',
+  storage,
+  whitelist: ['image']
+}
+
+const persistedReducer = persistReducer(persistConfig, reducers)
+const composeEnhancers = composeWithDevTools({ shouldHotReload: false })
+
 export default createStore(
-  reducers,
-  composeWithDevTools(applyMiddleware(thunk))
+  persistedReducer,
+  composeEnhancers(
+    applyMiddleware(thunk)
+  )
 )
