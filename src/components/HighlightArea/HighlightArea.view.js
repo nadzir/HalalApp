@@ -8,6 +8,7 @@ export const HighlightArea = ({items}) => {
   const polygonArea = () => {
     return items.map(item =>
       <Ellipse
+        key={item.key}
         cx={item.cx}
         cy={item.cy}
         // r={item.radius}

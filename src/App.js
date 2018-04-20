@@ -7,13 +7,13 @@ import store from './redux/store'
 export default class AppContainer extends Component {
   constructor () {
     super()
-    this.state = {
-      store: store
-    }
+    // this.state = {
+    //   store: store
+    // }
   }
   render () {
     return (
-      <Provider store={this.state.store}>
+      <Provider store={store}>
         <Router scenes={AppRoutes} />
       </Provider>
     )
