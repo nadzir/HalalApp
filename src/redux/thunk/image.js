@@ -2,6 +2,7 @@ import { convertImageToBase64, resizeImage } from '../../lib/imageUtil'
 import { getLabel } from '../../lib/imageProcessing'
 import { storeImagePath, storeImageItems, storeImageBase64, storeImageLoading } from '../actions'
 import { get } from 'lodash'
+import { VIEW_WIDTH, VIEW_HEIGHT } from '../../../config/constants/size'
 
 export function processImage (imagePath) {
   return async (dispatch) => {
@@ -11,7 +12,7 @@ export function processImage (imagePath) {
     dispatch(storeImagePath())
     dispatch(storeImageItems())
 
-    const resizedImage = await resizeImage(imagePath)
+    const resizedImage = await resizeImage(imagePath, VIEW_WIDTH, VIEW_HEIGHT)
     dispatch(storeImagePath(resizedImage.path))
     const imageBase64 = await convertImageToBase64(resizedImage.path)
     dispatch(storeImageBase64(imageBase64))

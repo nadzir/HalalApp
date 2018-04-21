@@ -1,9 +1,10 @@
 import { get } from 'lodash'
 import { isHalalLogo } from '../../lib/halal/halalVerifier'
+import { VIEW_HEIGHT, VIEW_WIDTH } from '../../../config/constants/size'
 export const getItems = (state) => {
   const logos = get(state, 'image.items.logoAnnotations', [])
-  const scaleX = get(state, 'image.scaleX', 1.88)
-  const scaleY = get(state, 'image.scaleY', 1.88)
+  const scaleX = get(state, 'image.scaleX', 1)
+  const scaleY = get(state, 'image.scaleY', 1)
   return logos.map((logo, index) => {
     const vertices = logo.boundingPoly.vertices
     const width = (vertices[1].x - vertices[0].x)
@@ -22,11 +23,17 @@ export const getItems = (state) => {
         acc = `${acc} ${x},${y}`
         return acc.trim()
       }, ''),
-      cx: vertices[0].x * scaleX, // + (width),
-      cy: vertices[2].y * scaleY, // + (height * 3),
-      radius: diagonal * 1.2,
-      rx: width * 1.2,
-      ry: height * 1.2
+      cx: vertices[0].x + (width / 2), //* scaleX, // + (width),
+      cy: vertices[1].y + (height / 2), //* scaleY, // + (height * 3),
+      radius: diagonal, // * 1.2,
+      rx: width, // * 1.2,
+      ry: height// * 1.2
     }
   })
 }
+
+// X : 1.7
+// Y: 1.25
+
+// View WIdth : 375 480
+// View height: 667 640

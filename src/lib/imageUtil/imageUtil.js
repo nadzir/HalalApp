@@ -3,7 +3,7 @@ import ImageResizer from 'react-native-image-resizer'
 import RNFetchBlob from 'react-native-fetch-blob'
 
 // Google API recommended image size is 640 by 480
-export const resizeImage = (path, width = 640, height = 480) =>
+export const resizeImage = (path, width = 480, height = 640) =>
   new Promise((resolve, reject) => {
     ImageResizer.createResizedImage(path, width, height, 'PNG', 100)
       .then((resizedImage) => {

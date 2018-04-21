@@ -4,6 +4,8 @@ import { COLOURS } from '../../../config/constants'
 import { VIEW_HEIGHT, VIEW_WIDTH } from '../../../config/constants/size'
 
 export const HighlightArea = ({items}) => {
+  console.log('height', VIEW_HEIGHT)
+  console.log('width', VIEW_WIDTH)
   const polygonArea = () => {
     return [].concat(items).map(item =>
       item && <Ellipse
