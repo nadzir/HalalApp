@@ -23,6 +23,7 @@
     "react-native-svg": "^6.0.1-rc.3",
     "react-native-vector-icons": "^4.5.0",
     "react-redux": "^5.0.7",
+    "recompose": "^0.27.0",
     "redux": "^3.7.2",
     "redux-persist": "^5.9.1",
     "redux-thunk": "^2.2.0"

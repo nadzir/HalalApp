@@ -1,4 +1,3 @@
-
 import React from 'react'
 import { View, Image, TouchableOpacity, Slider, Text } from 'react-native'
 import { Header } from 'react-native-elements'
@@ -18,10 +17,9 @@ export const HalalFinder = ({
   scaleY
 }) => {
   return (
-    // <View />
     <View >
       <TouchableOpacity
-        style={{height: 50}}
+        style={{height: 50, position: 'absolute', zIndex: 999, width: VIEW_WIDTH}}
         activeOpacity={0.5}
         onPress={Actions.camera}>
         <Header
@@ -35,7 +33,7 @@ export const HalalFinder = ({
         width: '100%',
         top: 80,
         position: 'absolute',
-        zIndex: 999
+        zIndex: 888
       }}>
         <Slider
           step={0.01}

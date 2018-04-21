@@ -1,20 +1,19 @@
 import React from 'react'
 import { Svg, Ellipse } from 'react-native-svg'
 import { COLOURS } from '../../../config/constants'
+import { VIEW_HEIGHT, VIEW_WIDTH } from '../../../config/constants/size'
 
 export const HighlightArea = ({items}) => {
-  // console.log(items)
-
   const polygonArea = () => {
-    return items.map(item =>
-      <Ellipse
+    return [].concat(items).map(item =>
+      item && <Ellipse
         key={item.key}
         cx={item.cx}
         cy={item.cy}
         // r={item.radius}
         rx={item.rx}
         ry={item.ry}
-        stroke={item.isHalal ? COLOURS.HALAL : COLOURS.WHITE}
+        stroke={item.isHalal ? COLOURS.HALAL : COLOURS.HALAL}
         strokeWidth='5'
         fill='transparent'
       />
@@ -24,8 +23,9 @@ export const HighlightArea = ({items}) => {
   return (
     <Svg
       position='absolute'
-      height='100%'
-      width='100%' >
+      // top={80}
+      height={VIEW_HEIGHT}
+      width={VIEW_WIDTH} >
       {polygonArea()}
     </Svg>
   )

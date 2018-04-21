@@ -1,5 +1,13 @@
 export * from './image.js'
 
+export const STORE_IMAGE_LOADING = 'STORE_IMAGE_LOADING'
+export const storeImageLoading = (isLoading) => {
+  return {
+    type: STORE_IMAGE_LOADING,
+    isLoading
+  }
+}
+
 export const STORE_IMAGE_PATH = 'STORE_IMAGE_PATH'
 export const storeImagePath = (path) => {
   return {

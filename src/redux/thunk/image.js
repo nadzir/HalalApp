@@ -1,12 +1,15 @@
 import { convertImageToBase64, resizeImage } from '../../lib/imageUtil'
 import { getLabel } from '../../lib/imageProcessing'
-import { storeImagePath, storeImageItems, storeImageBase64 } from '../actions'
+import { storeImagePath, storeImageItems, storeImageBase64, storeImageLoading } from '../actions'
 import { get } from 'lodash'
 
 export function processImage (imagePath) {
   return async (dispatch) => {
     // Reset
+    dispatch(storeImageLoading(true))
     dispatch(storeImageBase64())
+    dispatch(storeImagePath())
+    dispatch(storeImageItems())
 
     const resizedImage = await resizeImage(imagePath)
     dispatch(storeImagePath(resizedImage.path))
@@ -15,5 +18,6 @@ export function processImage (imagePath) {
     const items = await getLabel(imageBase64)
     const response = get(items, 'responses[0]', [])
     dispatch(storeImageItems(response))
+    dispatch(storeImageLoading(false))
   }
 }
