@@ -1,18 +1,22 @@
 import React from 'react'
 import { List, ListItem } from 'react-native-elements'
 import { FlatList } from 'react-native'
-import { VIEW_HEIGHT, VIEW_WIDTH } from '../../../config/constants/size'
+import { COLOURS } from '../../../config/constants'
 
 export const ItemList = ({items}) => {
+  const actualListHeight = (items.length * 75) + 50
+  const listHeight = (actualListHeight > 500 || actualListHeight <= 0) ? 100 : actualListHeight
   return (
     <List
       containerStyle={{
-        opacity: 0.9,
-        height: VIEW_HEIGHT * 0.3,
-        top: VIEW_HEIGHT - (VIEW_HEIGHT * 0.3),
-        width: VIEW_WIDTH,
-        alignSelf: 'stretch',
-        position: 'absolute'
+        height: listHeight,
+        width: '100%',
+        backgroundColor: COLOURS.BRAND,
+        marginTop: 0,
+        borderTopWidth: 5,
+        borderTopColor: COLOURS.BRAND_COMPLIMENT,
+        borderBottomColor: COLOURS.BRAND_COMPLIMENT
+
       }}
     >
       <FlatList
@@ -22,6 +26,10 @@ export const ItemList = ({items}) => {
           <ListItem
             title={item.title}
             subtitle={`${item.halal}`}
+            chevronColor={COLOURS.WHITE}
+            titleStyle={{color: COLOURS.WHITE}}
+            subtitleStyle={{color: COLOURS.WHITE}}
+            containerStyle={{borderBottomColor: COLOURS.WHITE}}
           />
         )}
       />

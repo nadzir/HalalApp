@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/lib/halal/halalVerifier.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">All files</a> / <a href="index.html">src/lib/halal</a> halalVerifier.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">59.38% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>19/32</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">50% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>5/10</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">60% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>6/10</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">61.29% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>19/31</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// From MUIS singapore
+import foodPlaceList from '../../../data/foodPlaceList.json'
+// From Muslim consumer group product list
+import brandList from '../../../data/brandList.json'
+// From http://www.singaporehalaldirectory.com/company/list/all/1
+import companyList from '../../../data/companyList.json'
+import stopWord from '../../../data/stopWord.json'
+import diacriticsRemovalMap from '../../../data/diacriticsRemovalMap.json'
+&nbsp;
+export const halalCheckType = {
+  LOGO: 'LOGO',
+  TEXT: 'TEXT'
+}
+&nbsp;
+export const isHalalFromFoodPlace = (foodPlace) =&gt; {
+  return foodPlaceList.includes(foodPlace)
+}
+&nbsp;
+export const isHalalFromCompany = (company) =&gt; {
+  return companyList.some((coy) =&gt; {
+    const coyText = coy.replace(/[^\w\s]/gi, '')
+    const lowerCaseText = coyText.toLowerCase()
+    return lowerCaseText.startsWith(company.toLowerCase())
+  })
+}
+&nbsp;
+export const isHalalFromBrand = (brand) =&gt; {
+  return Object.keys(brandList).some((k) =&gt; {
+    const lowerCaseBrand = brandList[k].ProductBrand.toLowerCase()
+    const halalStatusBrand = brandList[k].HalalStatus
+    const lowerCaseInput = brand.toLowerCase()
+    return lowerCaseBrand.startsWith(lowerCaseInput) &amp;&amp; halalStatusBrand === 'halal'
+  })
+}
+&nbsp;
+export const isHalalLogo = (query) =&gt; {
+  return isHalalFromCompany(query) ||
+         isHalalFromFoodPlace(query) ||
+         isHalalFromBrand(query)
+}
+&nbsp;
+export const isHalalText = <span class="fstat-no" title="function not covered" >(q</span>uery) =&gt; {
+<span class="cstat-no" title="statement not covered" >  return false</span>
+}
+&nbsp;
+export const removeDiacritics = <span class="fstat-no" title="function not covered" >(s</span>tr) =&gt; {
+<span class="cstat-no" title="statement not covered" >  diacriticsRemovalMap.map(<span class="fstat-no" title="function not covered" >(d</span>) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    str = str.replace(d.letters, d.base)</span>
+<span class="cstat-no" title="statement not covered" >    return true</span>
+  })
+<span class="cstat-no" title="statement not covered" >  return str</span>
+}
+&nbsp;
+export const isHalal = <span class="fstat-no" title="function not covered" >(t</span>ype, query) =&gt; {
+  const strippedQuery = <span class="cstat-no" title="statement not covered" >removeDiacritics(query)</span>
+    .replace(/[^\w\s]/gi, '')
+    .toLowerCase()
+&nbsp;
+<span class="cstat-no" title="statement not covered" >  if (stopWord.includes(strippedQuery)) <span class="cstat-no" title="statement not covered" >return false</span></span>
+<span class="cstat-no" title="statement not covered" >  switch (type) {</span>
+    case halalCheckType.LOGO: <span class="cstat-no" title="statement not covered" >return isHalalLogo(strippedQuery)</span>
+    case halalCheckType.TEXT: <span class="cstat-no" title="statement not covered" >return isHalalText(strippedQuery)</span>
+    default:
+<span class="cstat-no" title="statement not covered" >      console.error('Error in checking if halal: Invalid type passed')</span>
+<span class="cstat-no" title="statement not covered" >      return false</span>
+  }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sat Apr 21 2018 08:59:07 GMT+0800 (+08)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

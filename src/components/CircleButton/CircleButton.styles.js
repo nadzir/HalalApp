@@ -2,16 +2,18 @@ import { StyleSheet } from 'react-native'
 import { COLOURS } from '../../../config/constants'
 
 export const styles = StyleSheet.create({
-  buttonStyle: {
-    height: 100,
-    width: 100,
-    borderRadius: 100,
-    backgroundColor: COLOURS.WHITE
-  },
-  containerViewStyle: {
-    borderRadius: 50,
-    height: 200,
+  view: {
     alignItems: 'center',
-    backgroundColor: 'transparent'
+    backgroundColor: COLOURS.BRAND,
+    borderTopColor: COLOURS.BRAND_COMPLIMENT,
+    borderTopWidth: 5,
+    height: 150
+  },
+  avatar: {
+    backgroundColor: COLOURS.BRAND_COMPLIMENT,
+    margin: 5
+  },
+  text: {
+    color: COLOURS.WHITE
   }
 })

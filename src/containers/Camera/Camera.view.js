@@ -1,10 +1,11 @@
 import Camera from 'react-native-camera'
 import React, { Component } from 'react'
 import { View } from 'react-native'
-import { Header } from 'react-native-elements'
-import { COLOURS, APP_NAME } from '../../../config/constants'
 import { styles } from '../Camera'
 import { CircleButton } from '../../components/CircleButton'
+import { HeaderTop } from '../../components/Header'
+import { Button } from 'react-native-elements'
+import { COLOURS } from '../../../config/constants'
 
 export class CameraView extends Component {
   constructor (props) {
@@ -23,11 +24,7 @@ export class CameraView extends Component {
   render () {
     return (
       <View style={styles.view}>
-        <Header
-          leftComponent={{ icon: 'menu', color: COLOURS.WHITE }}
-          centerComponent={{ text: APP_NAME, style: { color: COLOURS.WHITE } }}
-          outerContainerStyles={styles.outerContainerStyles}
-        />
+        <HeaderTop />
         <Camera
           ref={(cam) => {
             this.camera = cam
@@ -35,11 +32,19 @@ export class CameraView extends Component {
           style={styles.camera}
           aspect={Camera.constants.Aspect.fill}
           captureTarget={Camera.constants.CaptureTarget.disk}
-        >
-          <CircleButton
+        />
+        {/* <CircleButton
+          onPress={this.takePicture.bind(this)}
+        /> */}
+        <View style={styles.bottomView}>
+          <Button
+            large
+            containerViewStyle={styles.buttonContainer}
+            buttonStyle={styles.button}
+            icon={{name: 'camera-alt'}}
             onPress={this.takePicture.bind(this)}
-          />
-        </Camera>
+            title='Capture a logo' />
+        </View>
       </View>
     )
   }

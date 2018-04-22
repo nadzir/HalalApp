@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { storeItemsScaleX, storeItemsScaleY } from '../../redux/actions'
 import { branch, renderComponent, compose } from 'recompose'
 import { Loading } from '../../components/Loading'
-import { getItems } from '../../components/HighlightArea/HighlightArea.selector'
+import { Actions } from 'react-native-router-flux'
 
 const mapStateToProps = (state) => {
   return {
@@ -18,7 +18,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     storeScaleX: (scaleX) => dispatch(storeItemsScaleX(scaleX)),
-    storeScaleY: (scaleY) => dispatch(storeItemsScaleY(scaleY))
+    storeScaleY: (scaleY) => dispatch(storeItemsScaleY(scaleY)),
+    goToCameraView: Actions.camera
   }
 }
 

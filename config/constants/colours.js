@@ -1,6 +1,7 @@
 export const COLOURS = {
-  HOME_BACKGROUND: '#231c16',
+  HOME_BACKGROUND: '#F2F1EF', // #26A65B', // '#231c16',
   BRAND: '#26A65B', // '#231c16',
+  BRAND_COMPLIMENT: '#006442',
   WHITE: '#F2F1EF',
   HALAL: '#26A65B'
 }

@@ -2,16 +2,16 @@ import { StyleSheet } from 'react-native'
 import { COLOURS } from '../../../config/constants'
 
 export const styles = StyleSheet.create({
-  view: {
+  topView: {
     flex: 1,
-    flexDirection: 'column'
+    flexDirection: 'column',
+    justifyContent: 'space-between'
   },
-  outerContainerStyles: {
-    backgroundColor: COLOURS.BRAND,
-    width: '100%'
-  },
-  camera: {
-    flex: 1
+  middleView: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: 500,
+    backgroundColor: COLOURS.BRAND_COMPLIMENT
   },
   bottomView: {
     alignItems: 'center',
@@ -21,11 +21,8 @@ export const styles = StyleSheet.create({
     height: 100,
     justifyContent: 'center'
   },
-  buttonContainer: {
-    // margin: 100
-  },
-  button: {
-    backgroundColor: COLOURS.BRAND_COMPLIMENT,
-    borderRadius: 10
+  text: {
+    margin: 10,
+    color: COLOURS.WHITE
   }
 })
