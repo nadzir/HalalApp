@@ -3,6 +3,7 @@ import { getLabel } from '../../lib/imageProcessing'
 import { storeImagePath, storeImageItems, storeImageBase64, storeImageLoading } from '../actions'
 import { get } from 'lodash'
 import { VIEW_WIDTH, VIEW_HEIGHT } from '../../../config/constants/size'
+import { halalCheck } from '../../lib/halal'
 
 export function processImage (imagePath) {
   return async (dispatch) => {
@@ -18,7 +19,27 @@ export function processImage (imagePath) {
     dispatch(storeImageBase64(imageBase64))
     const items = await getLabel(imageBase64)
     const response = get(items, 'responses[0]', [])
-    dispatch(storeImageItems(response))
+    const logos = await checkHalalItems(response)
+    console.log(logos)
+    dispatch(storeImageItems({logos}))
     dispatch(storeImageLoading(false))
   }
+}
+
+async function checkHalalItems (response) {
+// Get logo
+  const logos = get(response, 'logoAnnotations', [])
+  const pArr = logos.map(async (logo) => {
+    const halalCheckResponse = await halalCheck(logo.description)
+    const response = JSON.parse(halalCheckResponse)
+    const halal = response.length === 0 ? undefined : response[0]
+    return {
+      ...logo,
+      key: logo.description,
+      title: logo.description,
+      halal: halal,
+      isHalal: halal.halal_status === 'halal'
+    }
+  })
+  return Promise.all(pArr)
 }

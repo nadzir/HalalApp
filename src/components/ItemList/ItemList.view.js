@@ -25,7 +25,7 @@ export const ItemList = ({items}) => {
         renderItem={({ item }) => (
           <ListItem
             title={item.title}
-            subtitle={`${item.halal}`}
+            subtitle={`${item.halal.halal_status || ''}`}
             chevronColor={COLOURS.WHITE}
             titleStyle={{color: COLOURS.WHITE}}
             subtitleStyle={{color: COLOURS.WHITE}}
