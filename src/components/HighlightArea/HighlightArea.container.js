@@ -21,8 +21,8 @@ const withLifeCycle = lifecycle({
     const {items} = this.props
     if (items.length === 0) {
       Alert.alert(
-        'No Items Found',
-        'Try another image',
+        'No Logo Found',
+        'Try capturing an image with a Logo',
         [
           {text: 'OK', onPress: Actions.camera}
         ],

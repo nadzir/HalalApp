@@ -13,16 +13,19 @@ export function processImage (imagePath) {
     dispatch(storeImagePath())
     dispatch(storeImageItems())
 
-    const resizedImage = await resizeImage(imagePath, VIEW_WIDTH, VIEW_HEIGHT)
-    dispatch(storeImagePath(resizedImage.path))
-    const imageBase64 = await convertImageToBase64(resizedImage.path)
-    dispatch(storeImageBase64(imageBase64))
-    const items = await getLabel(imageBase64)
-    const response = get(items, 'responses[0]', [])
-    const logos = await checkHalalItems(response)
-    console.log(logos)
-    dispatch(storeImageItems({logos}))
-    dispatch(storeImageLoading(false))
+    try {
+      const resizedImage = await resizeImage(imagePath, VIEW_WIDTH, VIEW_HEIGHT)
+      dispatch(storeImagePath(resizedImage.path))
+      const imageBase64 = await convertImageToBase64(resizedImage.path)
+      dispatch(storeImageBase64(imageBase64))
+      const items = await getLabel(imageBase64)
+      const response = get(items, 'responses[0]', [])
+      const logos = await checkHalalItems(response)
+      dispatch(storeImageItems({logos}))
+      dispatch(storeImageLoading(false))
+    } catch (e) {
+      dispatch(storeImageLoading(false))
+    }
   }
 }
 
@@ -31,8 +34,7 @@ async function checkHalalItems (response) {
   const logos = get(response, 'logoAnnotations', [])
   const pArr = logos.map(async (logo) => {
     const halalCheckResponse = await halalCheck(logo.description)
-    const response = JSON.parse(halalCheckResponse)
-    const halal = response.length === 0 ? undefined : response[0]
+    const halal = JSON.parse(halalCheckResponse)
     return {
       ...logo,
       key: logo.description,

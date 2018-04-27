@@ -24,9 +24,10 @@ export const ItemList = ({items}) => {
         keyExtractor={item => item.key}
         renderItem={({ item }) => (
           <ListItem
-            title={item.title}
-            subtitle={`${item.halal.halal_status || ''}`}
-            chevronColor={COLOURS.WHITE}
+            title={`${item.title} (${item.halal.halal_status})`}
+            subtitle={`${item.halal.source || ''}`}
+            // chevronColor={COLOURS.WHITE}
+            hideChevron
             titleStyle={{color: COLOURS.WHITE}}
             subtitleStyle={{color: COLOURS.WHITE}}
             containerStyle={{borderBottomColor: COLOURS.WHITE}}
