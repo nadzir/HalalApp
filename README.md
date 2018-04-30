@@ -8,3 +8,9 @@ Run the command below to rectify
 ```
 xattr -cr .
 ```
+
+### Cant log in error
+Run the command below 
+```
+defaults write com.apple.dt.Xcode DVTDeveloperAccountUseKeychainService -bool NO
+```
