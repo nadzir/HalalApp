@@ -14,3 +14,19 @@ Run the command below
 ```
 defaults write com.apple.dt.Xcode DVTDeveloperAccountUseKeychainService -bool NO
 ```
+
+### App crashed when open react native camera
+Add a permission to ios
+Remember to rerun react-native run-ios
+```
+	<key>NSCameraUsageDescription</key>
+	<string>$(PRODUCT_NAME) needs to access camera</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string></string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>$(PRODUCT_NAME) needs to access microphone</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>$(PRODUCT_NAME) needs to save photos</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>$(PRODUCT_NAME) needs to access photo library</string>
+```
