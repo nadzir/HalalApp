@@ -11,13 +11,13 @@ export const styles = StyleSheet.create({
     width: '100%'
   },
   camera: {
-    flex: 1
+    flex: 1,
+    borderColor: COLOURS.BRAND_COMPLIMENT,
+    borderWidth: 2
   },
   bottomView: {
     alignItems: 'center',
     backgroundColor: COLOURS.BRAND,
-    borderTopColor: COLOURS.BRAND_COMPLIMENT,
-    borderTopWidth: 5,
     height: 100,
     justifyContent: 'center'
   },
@@ -25,7 +25,9 @@ export const styles = StyleSheet.create({
     // margin: 100
   },
   button: {
-    backgroundColor: COLOURS.BRAND_COMPLIMENT,
+    backgroundColor: COLOURS.BRAND,
+    borderColor: COLOURS.WHITE,
+    borderWidth: 1,
     borderRadius: 10
   }
 })

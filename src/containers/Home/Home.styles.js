@@ -4,20 +4,31 @@ import { COLOURS } from '../../../config/constants'
 export const styles = StyleSheet.create({
   outerViewStyle: {
     flexDirection: 'column',
-    backgroundColor: 'white',
+    flexWrap: 'wrap',
+    backgroundColor: COLOURS.BRAND,
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
+    justifyContent: 'center'
+    // alignItems: 'center'
   },
   avatar: {
     margin: 20,
     backgroundColor: COLOURS.BRAND
   },
   topTextStyle: {
-    color: COLOURS.BRAND,
-    textAlign: 'center'
+    color: COLOURS.WHITE
   },
   bottomTextStyle: {
-    color: COLOURS.BRAND_COMPLIMENT
+    color: COLOURS.WHITE,
+    margin: 50,
+    textAlign: 'center'
+  },
+  button: {
+    backgroundColor: COLOURS.BRAND,
+    borderColor: COLOURS.WHITE,
+    borderWidth: 1,
+    borderRadius: 10
+  },
+  buttonContainer: {
+    width: '80%'
   }
 })

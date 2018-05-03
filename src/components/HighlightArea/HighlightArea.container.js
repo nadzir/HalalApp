@@ -19,16 +19,16 @@ const mapDispatchToProps = (dispatch) => {
 const withLifeCycle = lifecycle({
   componentDidMount () {
     const {items} = this.props
-    if (items.length === 0) {
-      Alert.alert(
-        'No Logo Found',
-        'Try capturing an image with a Logo',
-        [
-          {text: 'OK', onPress: Actions.camera}
-        ],
-        { cancelable: false }
-      )
-    }
+    // if (items.length === 0) {
+    //   Alert.alert(
+    //     'No Logo Found',
+    //     'Try capturing an image with a Logo',
+    //     [
+    //       {text: 'OK', onPress: Actions.camera}
+    //     ],
+    //     { cancelable: false }
+    //   )
+    // }
   }
 })
 

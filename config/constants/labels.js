@@ -1,1 +1,1 @@
-export const APP_NAME = 'HalalGo'
+export const APP_NAME = 'Is This Halal?'

@@ -21,19 +21,17 @@ export const styles = StyleSheet.create({
   },
   bottomView: {
     alignItems: 'center',
-    backgroundColor: COLOURS.BRAND
-    // borderTopColor: COLOURS.BRAND_COMPLIMENT,
-    // borderTopWidth: 5,
-    // height: 300,
-    // justifyContent: 'center'
+    backgroundColor: COLOURS.BRAND,
+    height: 100,
+    justifyContent: 'center'
   },
   buttonContainer: {
-    height: 200
+    // height: 200
   },
   button: {
-    backgroundColor: COLOURS.BRAND_COMPLIMENT,
-    borderRadius: 10,
-    margin: 5,
-    width: '100%'
+    backgroundColor: COLOURS.BRAND,
+    borderColor: COLOURS.WHITE,
+    borderWidth: 1,
+    borderRadius: 10
   }
 })

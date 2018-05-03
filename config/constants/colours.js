@@ -3,5 +3,6 @@ export const COLOURS = {
   BRAND: '#26A65B', // '#231c16',
   BRAND_COMPLIMENT: '#006442',
   WHITE: '#F2F1EF',
-  HALAL: '#26A65B'
+  HALAL: '#26A65B',
+  GREY: '#ABB7B7'
 }

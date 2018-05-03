@@ -2,10 +2,8 @@ import Camera from 'react-native-camera'
 import React, { Component } from 'react'
 import { View } from 'react-native'
 import { styles } from '../Camera'
-import { CircleButton } from '../../components/CircleButton'
 import { HeaderTop } from '../../components/Header'
 import { Button } from 'react-native-elements'
-import { COLOURS } from '../../../config/constants'
 
 export class CameraView extends Component {
   constructor (props) {
@@ -33,17 +31,13 @@ export class CameraView extends Component {
           aspect={Camera.constants.Aspect.fill}
           captureTarget={Camera.constants.CaptureTarget.disk}
         />
-        {/* <CircleButton
-          onPress={this.takePicture.bind(this)}
-        /> */}
         <View style={styles.bottomView}>
           <Button
-            large
-            containerViewStyle={styles.buttonContainer}
             buttonStyle={styles.button}
+            containerViewStyle={styles.buttonContainer}
+            title='Capture a logo'
             icon={{name: 'camera-alt'}}
-            onPress={this.takePicture.bind(this)}
-            title='Capture a logo' />
+            onPress={this.takePicture.bind(this)} />
         </View>
       </View>
     )

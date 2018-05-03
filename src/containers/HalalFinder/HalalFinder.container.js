@@ -2,7 +2,7 @@ import { HalalFinder } from '../HalalFinder'
 import { connect } from 'react-redux'
 import { storeItemsScaleX, storeItemsScaleY } from '../../redux/actions'
 import { branch, renderComponent, compose } from 'recompose'
-import { Loading } from '../../components/Loading'
+import { LoadingContainer } from '../../components/Loading'
 import { Actions } from 'react-native-router-flux'
 
 const mapStateToProps = (state) => {
@@ -26,7 +26,7 @@ const mapDispatchToProps = (dispatch) => {
 const withLoading = branch(
   ({isLoading}) => !isLoading,
   (t) => t,
-  renderComponent(Loading)
+  renderComponent(LoadingContainer)
 )
 
 export const HalalFinderContainer = compose(

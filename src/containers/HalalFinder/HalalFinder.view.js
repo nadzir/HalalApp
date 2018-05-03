@@ -20,10 +20,10 @@ export const HalalFinder = ({
         source={{uri: `data:image/gif;base64,${imageBase64}`}}
       />
       <HighlightAreaContainer />
+      {/* <View /> */}
       <View style={styles.bottomView}>
         <ItemListContainer />
         <Button
-          large
           containerViewStyle={styles.buttoncontainer}
           buttonStyle={styles.button}
           icon={{name: 'camera-alt'}}

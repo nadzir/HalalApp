@@ -11,18 +11,24 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     height: 500,
-    backgroundColor: COLOURS.BRAND_COMPLIMENT
+    backgroundColor: COLOURS.BRAND_COMPLIMENT,
+    opacity: 0.8,
+    zIndex: 2
   },
   bottomView: {
     alignItems: 'center',
     backgroundColor: COLOURS.BRAND,
-    borderTopColor: COLOURS.BRAND_COMPLIMENT,
-    borderTopWidth: 5,
     height: 100,
     justifyContent: 'center'
   },
   text: {
     margin: 10,
     color: COLOURS.WHITE
+  },
+  image: {
+    height: '100%',
+    width: '100%',
+    position: 'absolute',
+    zIndex: -1
   }
 })
