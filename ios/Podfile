@@ -1,0 +1,31 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'HalalApp' do
+  # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
+  # use_frameworks!
+
+  # Pods for HalalApp
+  pod 'Google-Mobile-Ads-SDK'
+
+  pod 'react-native-google-analytics-bridge', :path => '../node_modules/react-native-google-analytics-bridge'
+
+  target 'HalalAppTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
+
+target 'HalalApp-tvOS' do
+  # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
+  # use_frameworks!
+
+  # Pods for HalalApp-tvOS
+
+  target 'HalalApp-tvOSTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end

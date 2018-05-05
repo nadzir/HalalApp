@@ -54,8 +54,3 @@ buck-out/
 
 # Secret config
 secret/
-
-# Native Codes
-#
-ios/
-android/

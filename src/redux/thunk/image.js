@@ -4,6 +4,7 @@ import { storeImagePath, storeImageItems, storeImageBase64, storeImageLoading } 
 import { get } from 'lodash'
 import { VIEW_WIDTH, VIEW_HEIGHT } from '../../../config/constants/size'
 import { halalCheck } from '../../lib/halal'
+import { analytics } from '../../analytics'
 
 export function processImage (imagePath) {
   return async (dispatch) => {
@@ -32,9 +33,13 @@ export function processImage (imagePath) {
 async function checkHalalItems (response) {
 // Get logo
   const logos = get(response, 'logoAnnotations', [])
+  if (logos.length === 0) { analytics.trackEvent('Google Image API', 'Logos returned from image', {label: 'No Logo Found', value: 1}) }
   const pArr = logos.map(async (logo) => {
+    analytics.trackEvent('Google Image API', 'Logos returned from image', {label: logo.description, value: 1})
     const halalCheckResponse = await halalCheck(logo.description)
     const halal = JSON.parse(halalCheckResponse)
+    analytics.trackEvent('Halal Results', `Logos with halal status: ${halal.halal_status}`, {label: logo.description, value: 1})
+    analytics.trackEvent('Halal Results', `Items from database with halal status: ${halal.halal_status}`, {label: halal.name, value: 1})
     return {
       ...logo,
       key: logo.description,

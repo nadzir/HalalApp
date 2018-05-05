@@ -11,6 +11,7 @@
 
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
+@import GoogleMobileAds;
 
 @implementation AppDelegate
 
@@ -31,6 +32,11 @@
   rootViewController.view = rootView;
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
+  
+  // Initialize Google Mobile Ads SDK
+  // Sample AdMob app ID: ca-app-pub-3940256099942544~1458002511
+  [GADMobileAds configureWithApplicationID:@"ca-app-pub-2753194854824423~2216734576"];
+  
   return YES;
 }
 

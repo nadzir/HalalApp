@@ -13,7 +13,7 @@ export const getItemList = (state) => {
     })
   } else {
     return items.map(item => {
-      const halal = item.halal.halal_status ? `(${item.halal.halal_status})` : ''
+      const halal = item.halal.halal_status ? `(${item.halal.halal_status})` : '(Unknown)'
       return {
         ...item,
         header: `${item.title} ${halal}`

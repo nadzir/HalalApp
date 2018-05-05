@@ -6,6 +6,7 @@ import { HeaderTop } from '../../components/Header'
 import { Button } from 'react-native-elements'
 import { AdMobInterstitial } from 'react-native-admob'
 import { INTERSTITIAL_AD_UNIT_ID } from '../../../secret'
+import { analytics } from '../../analytics'
 export class CameraView extends Component {
   constructor (props) {
     super(props)
@@ -13,11 +14,17 @@ export class CameraView extends Component {
   }
 
   componentDidMount () {
+    analytics.trackScreenView('Camera')
     if (this.props.isShowAds) {
       AdMobInterstitial.setAdUnitID(INTERSTITIAL_AD_UNIT_ID)
       AdMobInterstitial.requestAd()
-        .then(() => AdMobInterstitial.showAd())
-        .catch(error => console.warn(error))
+        .then(() => {
+          AdMobInterstitial.showAd()
+          analytics.trackEvent('Ads', 'Displayed Succesfull', {label: `Ads displayed successfully`, value: 1})
+        }).catch(error => {
+          console.warn(error)
+          analytics.trackEvent('Ads', 'Displayed Failed', {label: `Ads displayed Failed`, value: 1})
+        })
     }
   }
 

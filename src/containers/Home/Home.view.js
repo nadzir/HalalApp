@@ -4,11 +4,15 @@ import { Text, Button } from 'react-native-elements'
 import { Actions } from 'react-native-router-flux'
 import { styles } from '../Home'
 import { material } from 'react-native-typography'
+import { INTERSTITIAL_AD_UNIT_ID, GOOGLE_ANALYTICS_ID } from '../../../secret'
+import { AdMobInterstitial } from 'react-native-admob'
+import { analytics } from '../../analytics'
 
 const arr = []
 for (var i = 0; i < 500; i++) {
   arr.push(i)
 }
+
 export class HomeView extends Component {
   constructor () {
     super()
@@ -17,6 +21,7 @@ export class HomeView extends Component {
 
   componentDidMount () {
     this.animate()
+    analytics.trackScreenView('Home')
   }
 
   animate () {
