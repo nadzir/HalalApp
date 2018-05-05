@@ -6,7 +6,6 @@ import { HeaderTop } from '../../components/Header'
 import { Button } from 'react-native-elements'
 import { AdMobInterstitial } from 'react-native-admob'
 import { INTERSTITIAL_AD_UNIT_ID } from '../../../secret'
-
 export class CameraView extends Component {
   constructor (props) {
     super(props)

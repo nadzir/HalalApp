@@ -4,7 +4,9 @@ export const getItems = (state) => {
   const scaleX = get(state, 'image.scaleX', 1)
   const scaleY = get(state, 'image.scaleY', 1)
   return logos.map((logo, index) => {
-    const vertices = logo.boundingPoly.vertices
+    const vertices = get(logo, 'boundingPoly.vertices', null)
+    if (!vertices) return logo
+
     const width = (vertices[1].x - vertices[0].x)
     const height = (vertices[2].y - vertices[0].y)
     const diagonal = Math.sqrt(width * width + height * height)
