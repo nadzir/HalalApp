@@ -4,11 +4,22 @@ import { View } from 'react-native'
 import { styles } from '../Camera'
 import { HeaderTop } from '../../components/Header'
 import { Button } from 'react-native-elements'
+import { AdMobInterstitial } from 'react-native-admob'
+import { InterstitialAdUnitId } from '../../../secret'
 
 export class CameraView extends Component {
   constructor (props) {
     super(props)
     this.state = {}
+  }
+
+  componentDidMount () {
+    if (this.props.isShowAds) {
+      AdMobInterstitial.setAdUnitID(InterstitialAdUnitId)
+      AdMobInterstitial.requestAd()
+        .then(() => AdMobInterstitial.showAd())
+        .catch(error => console.warn(error))
+    }
   }
 
   async takePicture () {
