@@ -7,7 +7,7 @@ import { getItemList } from '../../components/ItemList/ItemList.selector'
 const mapStateToProps = (state) => {
   const items = getItemList(state)
   return {
-    isShowAds: items.length > 0
+    isShowAds: items.length > 0 && items[0].title !== 'No Logo Found'
   }
 }
 
