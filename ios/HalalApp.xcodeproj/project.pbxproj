@@ -961,6 +961,7 @@
 					};
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = VKGJ3Q5EE3;
+						ProvisioningStyle = Automatic;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -1680,9 +1681,11 @@
 			baseConfigurationReference = BA45E589040DB0F42439310D /* Pods-HalalApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
-				DEVELOPMENT_TEAM = VKGJ3Q5EE3;
+				DEVELOPMENT_TEAM = "";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-camera/ios",
@@ -1701,6 +1704,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.halalApp;
 				PRODUCT_NAME = HalalApp;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -1710,8 +1714,10 @@
 			baseConfigurationReference = 6A94DDADE25914B6332D769B /* Pods-HalalApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = VKGJ3Q5EE3;
+				DEVELOPMENT_TEAM = "";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-camera/ios",
@@ -1730,6 +1736,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.halalApp;
 				PRODUCT_NAME = HalalApp;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;

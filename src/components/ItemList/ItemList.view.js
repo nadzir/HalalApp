@@ -3,9 +3,13 @@ import { List, ListItem } from 'react-native-elements'
 import { FlatList } from 'react-native'
 import { COLOURS } from '../../../config/constants'
 
+const itemHeight = 60
+const maxItemHeight = 500
+
 export const ItemList = ({items}) => {
-  const actualListHeight = (items.length * 40)
-  const listHeight = (actualListHeight > 500 || actualListHeight < 40) ? 40 : actualListHeight
+  const actualListHeight = (items.length * itemHeight)
+  const listHeight = (actualListHeight > maxItemHeight || actualListHeight < itemHeight)
+    ? itemHeight : actualListHeight
   return (
     <List
       containerStyle={{
@@ -23,7 +27,7 @@ export const ItemList = ({items}) => {
         renderItem={({ item }) => (
           <ListItem
             title={`${item.header} `}
-            // subtitle={`${item.halal.source || ''}`}
+            subtitle={`${item.subtitle}`}
             hideChevron
             titleStyle={{color: COLOURS.WHITE}}
             subtitleStyle={{color: COLOURS.GREY}}

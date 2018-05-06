@@ -30,3 +30,8 @@ Remember to rerun react-native run-ios
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>$(PRODUCT_NAME) needs to access photo library</string>
 ```
+
+
+### Need to link and test in android
+
+-  https://github.com/idehub/react-native-google-analytics-bridge/wiki/Manual-installation

@@ -3,7 +3,7 @@ export const halalCheck = query =>
     fetch(`https://ehsccwagu1.execute-api.ap-southeast-1.amazonaws.com/api/halal-check/${query}`, {
       method: 'GET'
     }).then((response) => {
-      resolve(response._bodyText)
+      resolve(response._bodyText || '{}')
     }).catch(console.error)
   })
 
