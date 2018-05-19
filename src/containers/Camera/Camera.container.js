@@ -2,12 +2,9 @@ import {CameraView} from '../Camera'
 import { connect } from 'react-redux'
 import { Actions } from 'react-native-router-flux'
 import { processImage } from '../../redux/thunk'
-import { getItemList } from '../../components/ItemList/ItemList.selector'
 
 const mapStateToProps = (state) => {
-  const items = getItemList(state)
   return {
-    isShowAds: items.length > 0 && items[0].title !== 'No Logo Found'
   }
 }
 
