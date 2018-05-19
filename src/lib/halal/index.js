@@ -1,2 +1,2 @@
-export * from './halalVerifier'
+// export * from './halalVerifier'
 export * from './halalCheck'
