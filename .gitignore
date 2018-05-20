@@ -54,3 +54,4 @@ buck-out/
 
 # Secret config
 secret/
+.env
