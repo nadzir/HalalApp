@@ -1,6 +1,8 @@
+import { GOOGLE_IMAGE_API_KEY } from 'react-native-dotenv'
+
 export const getLabel = imageBase64 =>
   new Promise((resolve, reject) => {
-    fetch(`https://vision.googleapis.com/v1/images:annotate?key=${process.env.GOOGLE_IMAGE_API_KEY}`, {
+    fetch(`https://vision.googleapis.com/v1/images:annotate?key=${GOOGLE_IMAGE_API_KEY}`, {
       method: 'POST',
       body: JSON.stringify({
         requests: [

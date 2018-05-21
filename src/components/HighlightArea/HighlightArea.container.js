@@ -4,6 +4,7 @@ import { getItems } from './HighlightArea.selector'
 import { lifecycle, compose } from 'recompose'
 import { AdMobInterstitial } from 'react-native-admob'
 import { analytics } from '../../analytics'
+import { INTERSTITIAL_AD_UNIT_ID } from 'react-native-dotenv'
 
 const mapStateToProps = (state) => {
   return {
@@ -20,7 +21,7 @@ const withLifeCycle = lifecycle({
   componentDidMount () {
     const {items} = this.props
     if (items.length > 0) {
-      AdMobInterstitial.setAdUnitID(process.env.INTERSTITIAL_AD_UNIT_ID)
+      AdMobInterstitial.setAdUnitID(INTERSTITIAL_AD_UNIT_ID)
       AdMobInterstitial.requestAd()
         .then(() => {
           AdMobInterstitial.showAd()
@@ -33,8 +34,6 @@ const withLifeCycle = lifecycle({
   }
 })
 
-// export const HighlightAreaContainer =
-// connect(mapStateToProps, mapDispatchToProps)(HighlightArea)
 export const HighlightAreaContainer = compose(
   connect(mapStateToProps, mapDispatchToProps),
   withLifeCycle
