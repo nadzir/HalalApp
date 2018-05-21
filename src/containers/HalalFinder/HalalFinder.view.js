@@ -20,7 +20,6 @@ export const HalalFinder = ({
         source={{uri: `data:image/gif;base64,${imageBase64}`}}
       />
       <HighlightAreaContainer />
-      {/* <View /> */}
       <View style={styles.bottomView}>
         <ItemListContainer />
         <Button
@@ -29,6 +28,7 @@ export const HalalFinder = ({
           icon={{name: 'camera-alt'}}
           onPress={goToCameraView}
           title='Take more photo' />
+
       </View>
     </View>
   )

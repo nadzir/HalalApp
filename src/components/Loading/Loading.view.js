@@ -4,6 +4,8 @@ import { styles } from '../Loading'
 import { HeaderTop } from '../Header'
 import { material } from 'react-native-typography'
 import { COLOURS } from '../../../config/constants'
+import { AdMobBanner } from 'react-native-admob'
+import { BANNER_AD_UNIT_ID } from 'react-native-dotenv'
 
 export const Loading = ({imagePath}) => {
   return (
@@ -19,6 +21,11 @@ export const Loading = ({imagePath}) => {
       </View>
       <View style={styles.bottomView}>
         <Text style={[material.subheading, styles.text]} h4>Loading..</Text>
+        <AdMobBanner
+          adSize='smartBannerPortrait'
+          adUnitID={BANNER_AD_UNIT_ID}
+          onAdFailedToLoad={error => console.error(error)}
+        />
       </View>
     </View>
   )
