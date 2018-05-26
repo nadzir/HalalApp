@@ -7,7 +7,7 @@
     "test": "jest",
     "dev": "react-native run-ios --device \"Nphone\"",
     "android": "react-native run-android --device \"5f049b68\"",
-    "build": "react-native bundle --entry-file index.js --platform ios --bundle-output ios/main.jsbundle --dev false",
+    "build:ios": "react-native bundle --entry-file='index.js' --bundle-output='./ios/HalalApp/main.jsbundle' --dev=false --platform='ios' --assets-dest='./ios'",
     "clean": "xattr -cr ."
   },
   "dependencies": {
