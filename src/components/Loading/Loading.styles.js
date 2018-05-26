@@ -10,7 +10,7 @@ export const styles = StyleSheet.create({
   middleView: {
     alignItems: 'center',
     justifyContent: 'center',
-    height: '100%',
+    height: '80%%',
     backgroundColor: COLOURS.BRAND_COMPLIMENT,
     opacity: 0.8,
     zIndex: 2
