@@ -1,12 +1,11 @@
 import React from 'react'
 import { View, Image, Text } from 'react-native'
-import { Card, ListItem, Button } from 'react-native-elements'
+import { Card, Button } from 'react-native-elements'
 import { styles } from '../HalalList'
 import { HeaderTop } from '../../components/Header'
-import { HalalItemListContainer } from '../../components/HalalItemList'
 import { VIEW_WIDTH, VIEW_HEIGHT } from '../../../config/constants/size'
 import { COLOURS } from '../../../config/constants'
-import { material, systemWeights } from 'react-native-typography'
+import { systemWeights } from 'react-native-typography'
 
 export const HalalList = ({
   imagePath,
