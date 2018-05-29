@@ -1,4 +1,4 @@
-import { HalalList } from '../HalalList'
+import { HalalList, getItem } from '../HalalList'
 import { connect } from 'react-redux'
 import { storeItemsScaleX, storeItemsScaleY } from '../../redux/actions'
 import { branch, renderComponent, compose } from 'recompose'
@@ -11,7 +11,8 @@ const mapStateToProps = (state) => {
     imageBase64: state.image.base64,
     scaleX: state.image.scaleX,
     scaleY: state.image.scaleY,
-    isLoading: state.image.isLoading
+    isLoading: state.image.isLoading,
+    item: getItem(state)
   }
 }
 

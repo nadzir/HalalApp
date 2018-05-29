@@ -7,7 +7,7 @@ import storage from 'redux-persist/lib/storage'
 import reducers from './reducers' // Import the reducer
 
 const persistConfig = {
-  key: 'root',
+  key: 'halalApp',
   storage,
   whitelist: ['image']
 }

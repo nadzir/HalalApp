@@ -7,33 +7,30 @@ export const styles = StyleSheet.create({
     flexDirection: 'column',
     backgroundColor: COLOURS.WHITE
   },
-  outerContainerStyles: {
-    backgroundColor: COLOURS.WHITE,
-    width: '100%',
+  cardTitleStyleHalal: {
+    color: COLOURS.BRAND
+  },
+  cardTitleStyleNotHalal: {
+    color: COLOURS.NON_HALAL
+  },
+  cardDescTitle: {
+    color: COLOURS.BlACK
+  },
+  cardDescText: {
+    color: COLOURS.BRAND,
+    marginBottom: 5
+  },
+  cameraButtonStyle: {
     position: 'absolute',
-    zIndex: 2
-  },
-  image: {
-    height: '100%',
-    width: '100%',
-    position: 'absolute',
-    zIndex: -1,
-    borderColor: COLOURS.WHITE,
-    borderWidth: 20
-  },
-  bottomView: {
-    alignItems: 'center',
-    backgroundColor: COLOURS.WHITE,
-    height: 100,
-    justifyContent: 'center'
-  },
-  buttonContainer: {
-    // height: 200
+    bottom: 20,
+    width: '100%'
   },
   button: {
     backgroundColor: COLOURS.WHITE,
     borderColor: COLOURS.BRAND,
     borderWidth: 1,
-    borderRadius: 10
+    borderRadius: 10,
+    height: 70
   }
+
 })

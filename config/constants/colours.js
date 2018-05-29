@@ -5,5 +5,7 @@ export const COLOURS = {
   BRAND_COMPLIMENT: '#006442',
   WHITE: '#F2F1EF',
   HALAL: '#26A65B',
-  GREY: '#ABB7B7'
+  GREY: '#ABB7B7',
+  BLACK: '#757D75',
+  NON_HALAL: '#ABB7B7'
 }
