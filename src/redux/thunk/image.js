@@ -5,11 +5,12 @@ import { get } from 'lodash'
 import { VIEW_WIDTH, VIEW_HEIGHT } from '../../../config/constants/size'
 import { halalCheck } from '../../lib/halal'
 import { analytics } from '../../analytics'
+import { LOADING_BEGIN, LOADING_GET_LABEL, LOADING_GET_HALAL } from '../../components/Loading/Loading.constants'
 
 export function processImage (imagePath) {
   return async (dispatch) => {
     // Reset
-    dispatch(storeImageLoading(true))
+    dispatch(storeImageLoading(true, getLoadingText(LOADING_BEGIN)))
     dispatch(storeImageBase64())
     dispatch(storeImagePath())
     dispatch(storeImageItems())
@@ -19,8 +20,10 @@ export function processImage (imagePath) {
       dispatch(storeImagePath(resizedImage.path))
       const imageBase64 = await convertImageToBase64(resizedImage.path)
       dispatch(storeImageBase64(imageBase64))
+      dispatch(storeImageLoading(true, getLoadingText(LOADING_GET_LABEL)))
       const items = await getLabel(imageBase64)
       const response = get(items, 'responses[0]', [])
+      dispatch(storeImageLoading(true, getLoadingText(LOADING_GET_HALAL)))
       const logos = await checkHalalItems(response)
       dispatch(storeImageItems({logos}))
       dispatch(storeImageLoading(false))
@@ -28,6 +31,14 @@ export function processImage (imagePath) {
       dispatch(storeImageLoading(false))
     }
   }
+}
+
+function getLoadingText (textList) {
+  return getRandomElementFromArray(textList)
+}
+
+function getRandomElementFromArray (arr) {
+  return arr[Math.floor(Math.random() * arr.length)]
 }
 
 async function checkHalalItems (response) {

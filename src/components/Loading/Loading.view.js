@@ -1,33 +1,35 @@
 import React from 'react'
-import { View, Text, ActivityIndicator, Image } from 'react-native'
+import { View, Text } from 'react-native'
 import { styles } from '../Loading'
 import { HeaderTop } from '../Header'
-import { material } from 'react-native-typography'
+import { material, systemWeights } from 'react-native-typography'
 import { COLOURS } from '../../../config/constants'
+import Spinner from 'react-native-spinkit'
 // import { AdMobBanner } from 'react-native-admob'
 // import { BANNER_AD_UNIT_ID } from 'react-native-dotenv'
 
-export const Loading = ({imagePath}) => {
+export const Loading = ({imagePath, loadingText}) => {
   return (
     <View style={styles.view}>
       <HeaderTop />
-      <Image
-        style={styles.image}
-        resizeMode='contain'
-        source={{uri: imagePath}}
-      />
       <View style={styles.middleView}>
-        <ActivityIndicator size='large' color={COLOURS.BRAND} />
-        {/* <Text style={[material.subheading, styles.loadingText]} h4>Loading..</Text> */}
+        <Spinner
+          style={styles.spinner}
+          isVisible
+          size={60}
+          type={'ChasingDots'}
+          color={COLOURS.BRAND} />
       </View>
       <View style={styles.bottomView}>
-        <Text style={[material.subheading, styles.text]} h4>Loading..</Text>
-        {/* <AdMobBanner
+        <Text style={[material.title, systemWeights.light, styles.text]} h4>
+          {loadingText}
+        </Text>
+      </View>
+      {/* <AdMobBanner
           adSize='smartBannerPortrait'
           adUnitID={BANNER_AD_UNIT_ID}
           onAdFailedToLoad={error => console.error(error)}
         /> */}
-      </View>
     </View>
   )
 }

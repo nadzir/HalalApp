@@ -1,10 +1,11 @@
 export * from './image.js'
 
 export const STORE_IMAGE_LOADING = 'STORE_IMAGE_LOADING'
-export const storeImageLoading = (isLoading) => {
+export const storeImageLoading = (isLoading, loadingText) => {
   return {
     type: STORE_IMAGE_LOADING,
-    isLoading
+    isLoading,
+    loadingText
   }
 }
 

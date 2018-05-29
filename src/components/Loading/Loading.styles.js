@@ -20,19 +20,8 @@ export const styles = StyleSheet.create({
     height: 100,
     justifyContent: 'center'
   },
-  loadingText: {
-    backgroundColor: 'transparent'
-  },
   text: {
     margin: 10,
     color: COLOURS.BRAND
-  },
-  image: {
-    height: '100%',
-    width: '100%',
-    position: 'absolute',
-    zIndex: -1,
-    borderColor: COLOURS.WHITE,
-    borderWidth: 20
   }
 })

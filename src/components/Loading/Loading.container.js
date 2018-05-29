@@ -3,7 +3,8 @@ import { Loading } from '../Loading'
 
 const mapStateToProps = (state) => {
   return {
-    imagePath: state.image.path
+    imagePath: state.image.path,
+    loadingText: state.image.loadingText || 'Loading'
   }
 }
 

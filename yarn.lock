@@ -4750,6 +4750,12 @@ react-native-router-flux@^3.39.1:
     react-native-tabs "^1.0.9"
     react-static-container "^1.0.2"
 
+react-native-spinkit@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/react-native-spinkit/-/react-native-spinkit-1.1.1.tgz#3ae512f3978bc750b7c02639911e1710750d8539"
+  dependencies:
+    prop-types "^15.5.8"
+
 react-native-svg@^6.0.1-rc.3:
   version "6.3.1"
   resolved "https://registry.yarnpkg.com/react-native-svg/-/react-native-svg-6.3.1.tgz#06a573f17c59ce953a56fd62e776fd79d632d765"

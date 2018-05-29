@@ -7,7 +7,8 @@ export const image = (state = initialState, action) => {
     case STORE_IMAGE_LOADING:
       return {
         ...state,
-        isLoading: action.isLoading
+        isLoading: action.isLoading,
+        loadingText: action.loadingText
       }
     case STORE_IMAGE_PATH:
       return {

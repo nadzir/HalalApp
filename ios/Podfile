@@ -10,6 +10,8 @@ target 'HalalApp' do
 
   pod 'react-native-google-analytics-bridge', :path => '../node_modules/react-native-google-analytics-bridge'
 
+  pod 'react-native-spinkit', :path => '../node_modules/react-native-spinkit'
+
   target 'HalalAppTests' do
     inherit! :search_paths
     # Pods for testing
