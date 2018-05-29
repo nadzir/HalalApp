@@ -4,10 +4,16 @@ import { HomeView } from '../containers/Home'
 import { CameraViewContainer } from '../containers/Camera'
 import { HalalFinderContainer } from '../containers/HalalFinder'
 import { TransitionView } from '../containers/Transition'
-// import { Loading } from '../components/Loading'
+import { Loading } from '../components/Loading'
 
 export default Actions.create(
   <Scene key='root' hideNavBar='false' >
+    {/* <Scene
+      hideNavBar
+      key='loading'
+      component={Loading}
+      analyticsDesc='CameraView'
+    /> */}
     <Scene
       hideNavBar
       key='camera'

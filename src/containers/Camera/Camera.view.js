@@ -5,6 +5,7 @@ import { styles } from '../Camera'
 import { HeaderTop } from '../../components/Header'
 import { Button } from 'react-native-elements'
 import { analytics } from '../../analytics'
+import { COLOURS } from '../../../config/constants'
 export class CameraView extends Component {
   constructor (props) {
     super(props)
@@ -40,7 +41,8 @@ export class CameraView extends Component {
             buttonStyle={styles.button}
             containerViewStyle={styles.buttonContainer}
             title='Capture a logo'
-            icon={{name: 'camera-alt'}}
+            icon={{name: 'camera-alt', color: COLOURS.BRAND}}
+            color={COLOURS.BRAND}
             onPress={this.takePicture.bind(this)} />
         </View>
       </View>

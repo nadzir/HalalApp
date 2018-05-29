@@ -31,5 +31,6 @@ const withLoading = branch(
 
 export const HalalFinderContainer = compose(
   connect(mapStateToProps, mapDispatchToProps),
-  withLoading
+  // withLoading
+  renderComponent(LoadingContainer)
 )(HalalFinder)

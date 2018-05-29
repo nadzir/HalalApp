@@ -2,33 +2,37 @@ import { StyleSheet } from 'react-native'
 import { COLOURS } from '../../../config/constants'
 
 export const styles = StyleSheet.create({
-  topView: {
+  view: {
     flex: 1,
     flexDirection: 'column',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    backgroundColor: COLOURS.WHITE
   },
   middleView: {
     alignItems: 'center',
     justifyContent: 'center',
-    height: 500,
-    backgroundColor: COLOURS.BRAND_COMPLIMENT,
     opacity: 0.8,
     zIndex: 2
   },
   bottomView: {
     alignItems: 'center',
-    backgroundColor: COLOURS.BRAND,
+    backgroundColor: COLOURS.WHITE,
     height: 100,
     justifyContent: 'center'
   },
+  loadingText: {
+    backgroundColor: 'transparent'
+  },
   text: {
     margin: 10,
-    color: COLOURS.WHITE
+    color: COLOURS.BRAND
   },
   image: {
     height: '100%',
     width: '100%',
     position: 'absolute',
-    zIndex: -1
+    zIndex: -1,
+    borderColor: COLOURS.WHITE,
+    borderWidth: 20
   }
 })

@@ -12,22 +12,19 @@ export const styles = StyleSheet.create({
   },
   camera: {
     flex: 1,
-    borderColor: COLOURS.BRAND_COMPLIMENT,
-    borderWidth: 2
+    borderColor: COLOURS.WHITE,
+    borderWidth: 20
   },
   bottomView: {
-    alignItems: 'center',
-    backgroundColor: COLOURS.BRAND,
+    backgroundColor: COLOURS.WHITE,
     height: 100,
     justifyContent: 'center'
   },
-  buttonContainer: {
-    // margin: 100
-  },
   button: {
-    backgroundColor: COLOURS.BRAND,
-    borderColor: COLOURS.WHITE,
+    backgroundColor: COLOURS.WHITE,
+    borderColor: COLOURS.BRAND,
     borderWidth: 1,
-    borderRadius: 10
+    borderRadius: 10,
+    height: 70
   }
 })
