@@ -3,8 +3,9 @@ import { View, TouchableOpacity, Animated, Easing } from 'react-native'
 import { Text, Button } from 'react-native-elements'
 import { Actions } from 'react-native-router-flux'
 import { styles } from '../Home'
-import { material } from 'react-native-typography'
+import { material, systemWeights } from 'react-native-typography'
 import { analytics } from '../../analytics'
+import { COLOURS } from '../../../config/constants'
 
 const arr = []
 for (var i = 0; i < 500; i++) {
@@ -14,7 +15,8 @@ for (var i = 0; i < 500; i++) {
 export class HomeView extends Component {
   constructor () {
     super()
-    this.animatedValue = new Animated.Value(0)
+    this.titleAnimatedOpacity = new Animated.Value(0)
+    this.textAnimatedOpacity = new Animated.Value(0)
   }
 
   componentDidMount () {
@@ -22,21 +24,25 @@ export class HomeView extends Component {
     analytics.trackScreenView('Home')
   }
 
+  createAnimation (value, duration, easing, delay = 0) {
+    return Animated.timing(
+      value,
+      {
+        toValue: 1,
+        duration,
+        easing,
+        delay
+      }
+    )
+  }
+
   animate () {
-    this.animatedValue.setValue(0)
-    const createAnimation = function (value, duration, easing, delay = 0) {
-      return Animated.timing(
-        value,
-        {
-          toValue: 1,
-          duration,
-          easing,
-          delay
-        }
-      )
-    }
+    this.titleAnimatedOpacity.setValue(0)
+    this.textAnimatedOpacity.setValue(0)
+
     Animated.parallel([
-      createAnimation(this.animatedValue, 1000, Easing.bounce)
+      this.createAnimation(this.titleAnimatedOpacity, 1000, Easing.bounce),
+      this.createAnimation(this.textAnimatedOpacity, 2000, Easing.bounce)
     ]).start()
   }
 
@@ -45,20 +51,28 @@ export class HomeView extends Component {
       <View style={styles.outerViewStyle}>
         <TouchableOpacity
           activeOpacity={0.5}
+          onPress={Actions.camera}
         >
-          <Animated.View style={{ transform: [{scale: this.animatedValue}], alignItems: 'center' }}>
-            <Text style={[material.display1, styles.topTextStyle]} >Is This Halal?</Text>
+          <Animated.View
+            style={{
+              opacity: this.titleAnimatedOpacity,
+              alignItems: 'center'}}>
+            <Text
+              style={[material.display3, systemWeights.light, styles.topTextStyle]} >
+              Is This {'\n'}
+              Halal?
+            </Text>
           </Animated.View>
-          <Animated.View style={{opacity: this.animatedValue, alignItems: 'center'}}>
-            <Text style={[material.headline, styles.bottomTextStyle]} h4>
-               Try taking a photo of a brand or a logo,
+          <Animated.View
+            style={{
+              opacity: this.textAnimatedOpacity,
+              alignItems: 'center'}}>
+            <Text style={[material.headline, systemWeights.light, styles.bottomTextStyle]} h4>
+               Try taking a photo{'\n'}
+               of a brand{'\n'}
+               or a logo{'\n'}
                and check if it is halal.
             </Text>
-            <Button
-              buttonStyle={styles.button}
-              containerViewStyle={styles.buttonContainer}
-              title='Take a photo'
-              onPress={Actions.camera} />
           </Animated.View>
         </TouchableOpacity>
       </View>
