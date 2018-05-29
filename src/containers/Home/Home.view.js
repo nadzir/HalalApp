@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
 import { View, TouchableOpacity, Animated, Easing } from 'react-native'
-import { Text, Button } from 'react-native-elements'
+import { Text } from 'react-native-elements'
 import { Actions } from 'react-native-router-flux'
 import { styles } from '../Home'
 import { material, systemWeights } from 'react-native-typography'
 import { analytics } from '../../analytics'
-import { COLOURS } from '../../../config/constants'
 
 const arr = []
 for (var i = 0; i < 500; i++) {

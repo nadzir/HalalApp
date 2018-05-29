@@ -8,13 +8,12 @@ import { TransitionView } from '../containers/Transition'
 
 export default Actions.create(
   <Scene key='root' hideNavBar='false' >
-    {/* <Scene
+    <Scene
       hideNavBar
-      key='loading'
-      component={Loading}
-      analyticsDesc='AppLaunch: Launching App'
-    /> */}
-
+      key='camera'
+      component={CameraViewContainer}
+      analyticsDesc='CameraView'
+    />
     <Scene
       hideNavBar
       key='home'
@@ -27,12 +26,7 @@ export default Actions.create(
       component={TransitionView}
       analyticsDesc='Transition'
     />
-    <Scene
-      hideNavBar
-      key='camera'
-      component={CameraViewContainer}
-      analyticsDesc='CameraView'
-    />
+
     <Scene
       hideNavBar
       key='halalFinder'
