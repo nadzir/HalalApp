@@ -72,7 +72,8 @@ async function checkHalalItems (response) {
         key: logo.description,
         title: logo.description,
         halal: halal,
-        isHalal: halalStatus === 'halal'
+        isHalal: halalStatus === 'halal',
+        source: halal.source
       }
     })
     return Promise.all(pArr)

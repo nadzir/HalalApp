@@ -20,8 +20,7 @@ export const getItem = (state) => {
       ...item,
       header: `${item.title}`,
       subtitle,
-      isHalal,
-      source: 'www.dummyurl.com'
+      isHalal
     }
   }
 }
