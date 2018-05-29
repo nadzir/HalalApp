@@ -3,7 +3,8 @@ import { Actions, Scene } from 'react-native-router-flux'
 import { HomeView } from '../containers/Home'
 import { CameraViewContainer } from '../containers/Camera'
 import { HalalFinderContainer } from '../containers/HalalFinder'
-import { TransitionView } from '../containers/Transition'
+import { HalalListContainer } from '../containers/HalalList'
+// import { TransitionView } from '../containers/Transition'
 // import { Loading } from '../components/Loading'
 
 export default Actions.create(
@@ -34,10 +35,16 @@ export default Actions.create(
     />
     <Scene
       hideNavBar
+      key='halalList'
+      component={HalalListContainer}
+      analyticsDesc='HalalList'
+    />
+    {/* <Scene
+      hideNavBar
       key='transition'
       component={TransitionView}
       analyticsDesc='Transition'
-    />
+    /> */}
 
   </Scene>
 )

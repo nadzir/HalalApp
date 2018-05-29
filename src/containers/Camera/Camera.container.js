@@ -13,7 +13,7 @@ const mapDispatchToProps = (dispatch) => {
     storeImagePath: (imagePath) => {
       dispatch(processImage(imagePath))
     },
-    goToHalalFinderView: Actions.halalFinder
+    goToHalalFinderView: Actions.halalList
   }
 }
 
