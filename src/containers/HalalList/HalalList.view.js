@@ -22,7 +22,7 @@ export const HalalList = ({
         <Text style={[systemWeights.bold, styles.cardDescTitle]}>Halal Status</Text>
         <Text style={[systemWeights.light, styles.cardDescText]}>{item.subtitle}</Text>
 
-        <Text style={[systemWeights.bold, styles.cardDescTitle]}>Source</Text>
+        {item.source && <Text style={[systemWeights.bold, styles.cardDescTitle]}>Source</Text>}
         <Text style={[systemWeights.light, styles.cardDescText]}>{item.source}</Text>
 
       </View>
