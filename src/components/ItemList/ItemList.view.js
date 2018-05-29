@@ -15,7 +15,7 @@ export const ItemList = ({items}) => {
       containerStyle={{
         height: listHeight,
         width: '100%',
-        backgroundColor: COLOURS.BRAND_COMPLIMENT,
+        backgroundColor: COLOURS.BRAND,
         borderBottomWidth: 0,
         position: 'absolute',
         bottom: 100
@@ -30,7 +30,7 @@ export const ItemList = ({items}) => {
             subtitle={`${item.subtitle}`}
             hideChevron
             titleStyle={{color: COLOURS.WHITE}}
-            subtitleStyle={{color: COLOURS.GREY}}
+            subtitleStyle={{color: COLOURS.WHITE}}
             containerStyle={{borderBottomColor: COLOURS.WHITE}}
           />
         )}

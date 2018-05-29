@@ -8,7 +8,7 @@ export const styles = StyleSheet.create({
     justifyContent: 'space-between'
   },
   outerContainerStyles: {
-    backgroundColor: COLOURS.BRAND,
+    backgroundColor: COLOURS.WHITE,
     width: '100%',
     position: 'absolute',
     zIndex: 2
@@ -17,11 +17,13 @@ export const styles = StyleSheet.create({
     height: '100%',
     width: '100%',
     position: 'absolute',
-    zIndex: -1
+    zIndex: -1,
+    borderColor: COLOURS.WHITE,
+    borderWidth: 20
   },
   bottomView: {
     alignItems: 'center',
-    backgroundColor: COLOURS.BRAND,
+    backgroundColor: COLOURS.WHITE,
     height: 100,
     justifyContent: 'center'
   },
@@ -29,8 +31,8 @@ export const styles = StyleSheet.create({
     // height: 200
   },
   button: {
-    backgroundColor: COLOURS.BRAND,
-    borderColor: COLOURS.WHITE,
+    backgroundColor: COLOURS.WHITE,
+    borderColor: COLOURS.BRAND,
     borderWidth: 1,
     borderRadius: 10
   }
