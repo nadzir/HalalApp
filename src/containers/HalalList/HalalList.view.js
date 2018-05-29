@@ -13,6 +13,36 @@ export const HalalList = ({
   goToCameraView,
   item
 }) => {
+  const itemDetails = () => {
+    return (
+      <View style={{width: '100%', marginLeft: 20}}>
+        <Text style={[systemWeights.bold, styles.cardDescTitle]}>Brand</Text>
+        <Text style={[systemWeights.light, styles.cardDescText]}>{item.header}</Text>
+
+        <Text style={[systemWeights.bold, styles.cardDescTitle]}>Halal Status</Text>
+        <Text style={[systemWeights.light, styles.cardDescText]}>{item.subtitle}</Text>
+
+        <Text style={[systemWeights.bold, styles.cardDescTitle]}>Source</Text>
+        <Text style={[systemWeights.light, styles.cardDescText]}>{item.source}</Text>
+
+      </View>
+    )
+  }
+
+  const emptyItem = () => {
+    return (
+      <View style={{width: '100%', marginLeft: 20}}>
+        <Text style={[systemWeights.light, styles.cardDescText]}>
+        No logo found. {'\n'}{'\n'}
+        Try capturing a clear image {'\n'}
+        of a logo or a brand. {'\n'}{'\n'}
+        Ensure that the lighting is good{'\n'}
+        and the camera is in focus
+        </Text>
+      </View>
+    )
+  }
+
   return (
     <View style={styles.mainView}>
       <HeaderTop />
@@ -26,17 +56,7 @@ export const HalalList = ({
             resizeMode='contain'
             source={{uri: `data:image/gif;base64,${imageBase64}`}}
           />
-          <View style={{width: '100%', marginLeft: 20}}>
-            <Text style={[systemWeights.bold, styles.cardDescTitle]}>Brand</Text>
-            <Text style={[systemWeights.light, styles.cardDescText]}>{item.header}</Text>
-
-            <Text style={[systemWeights.bold, styles.cardDescTitle]}>Halal Status</Text>
-            <Text style={[systemWeights.light, styles.cardDescText]}>{item.subtitle}</Text>
-
-            <Text style={[systemWeights.bold, styles.cardDescTitle]}>Source</Text>
-            <Text style={[systemWeights.light, styles.cardDescText]}>{item.source}</Text>
-
-          </View>
+          {item.key === 1001 ? emptyItem() : itemDetails()}
         </View>
       </Card>
       <View style={styles.cameraButtonStyle}>
