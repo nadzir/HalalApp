@@ -55,3 +55,4 @@ buck-out/
 # Secret config
 secret/
 .env
+ios/GoogleService-Info.plist

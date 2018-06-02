@@ -1,9 +1,15 @@
 PODS:
+  - Firebase/AdMob (5.1.0):
+    - Firebase/Core
+    - Google-Mobile-Ads-SDK (= 7.31.0)
   - Firebase/Core (5.1.0):
     - Firebase/CoreOnly
     - FirebaseAnalytics (= 5.0.1)
   - Firebase/CoreOnly (5.1.0):
     - FirebaseCore (= 5.0.2)
+  - Firebase/Crash (5.1.0):
+    - Firebase/Core
+    - FirebaseCrash (= 3.0.0)
   - FirebaseAnalytics (5.0.1):
     - FirebaseCore (~> 5.0)
     - FirebaseInstanceID (~> 3.0)
@@ -11,9 +17,18 @@ PODS:
     - nanopb (~> 0.3)
   - FirebaseCore (5.0.2):
     - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
+  - FirebaseCrash (3.0.0):
+    - FirebaseAnalytics (~> 5.0)
+    - FirebaseInstanceID (~> 3.0)
+    - GoogleToolboxForMac/Logger (~> 2.1)
+    - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
+    - Protobuf (~> 3.5)
   - FirebaseInstanceID (3.0.0):
     - FirebaseCore (~> 5.0)
+  - Google-Mobile-Ads-SDK (7.31.0)
   - GoogleToolboxForMac/Defines (2.1.4)
+  - GoogleToolboxForMac/Logger (2.1.4):
+    - GoogleToolboxForMac/Defines (= 2.1.4)
   - "GoogleToolboxForMac/NSData+zlib (2.1.4)":
     - GoogleToolboxForMac/Defines (= 2.1.4)
   - nanopb (0.3.8):
@@ -21,27 +36,36 @@ PODS:
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
+  - Protobuf (3.5.0)
 
 DEPENDENCIES:
+  - Firebase/AdMob
   - Firebase/Core
+  - Firebase/Crash
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Firebase
     - FirebaseAnalytics
     - FirebaseCore
+    - FirebaseCrash
     - FirebaseInstanceID
+    - Google-Mobile-Ads-SDK
     - GoogleToolboxForMac
     - nanopb
+    - Protobuf
 
 SPEC CHECKSUMS:
   Firebase: e08fb0795f35707aeb1d8a715c731c45bdf6fd56
   FirebaseAnalytics: b3628aea54c50464c32c393fb2ea032566e7ecc2
   FirebaseCore: b81044df1044c0857a0737c6324678b72d4f7f00
+  FirebaseCrash: 8900571fd763fd5bdda04522ec53da979456e3ce
   FirebaseInstanceID: 83e0040351565df711a5db3d8ebe5ea21aca998a
+  Google-Mobile-Ads-SDK: 6e529e748b45507a2ca904e0b5a52669ba3920c4
   GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
+  Protobuf: 8a9838fba8dae3389230e1b7f8c104aa32389c03
 
-PODFILE CHECKSUM: a792fbcd30930a406f005ef642aa4b2cb5d236ef
+PODFILE CHECKSUM: 5d5fe649ac787f2c3140040adec55db10266387f
 
 COCOAPODS: 1.5.0

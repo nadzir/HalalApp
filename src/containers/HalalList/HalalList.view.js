@@ -6,6 +6,11 @@ import { HeaderTop } from '../../components/Header'
 import { VIEW_WIDTH, VIEW_HEIGHT } from '../../../config/constants/size'
 import { COLOURS } from '../../../config/constants'
 import { systemWeights } from 'react-native-typography'
+import { BANNER_AD_UNIT_ID } from 'react-native-dotenv'
+import firebase from 'react-native-firebase'
+const Banner = firebase.admob.Banner
+const AdRequest = firebase.admob.AdRequest
+const request = new AdRequest()
 
 export const HalalList = ({
   imagePath,
@@ -50,7 +55,7 @@ export const HalalList = ({
         title={item.header}
         titleStyle={item.isHalal ? styles.cardTitleStyleHalal : styles.cardTitleStyleNotHalal}
       >
-        <View style={{flexDirection: 'row'}}>
+        <View style={{flexDirection: 'row', marginBottom: 10}}>
           <Image
             style={{height: VIEW_HEIGHT * 0.2, width: VIEW_WIDTH * 0.2}}
             resizeMode='contain'
@@ -59,6 +64,20 @@ export const HalalList = ({
           {item.key === 1001 ? emptyItem() : itemDetails()}
         </View>
       </Card>
+      <View style={styles.ads} >
+        <Banner
+          size={'BANNER'}
+          request={request.build()}
+          unitId={BANNER_AD_UNIT_ID}
+          onAdLoaded={() => {
+            console.log('Advert loaded')
+          }}
+          onAdFailedToLoad={() => {
+            console.log('error')
+          }}
+        />
+
+      </View>
       <View style={styles.cameraButtonStyle}>
         <Button
           buttonStyle={styles.button}
@@ -68,6 +87,7 @@ export const HalalList = ({
           color={COLOURS.BRAND}
           onPress={goToCameraView} />
       </View>
+
     </View>
   )
 }

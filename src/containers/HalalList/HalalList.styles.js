@@ -31,6 +31,11 @@ export const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 10,
     height: 70
+  },
+  ads: {
+    margin: 10,
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 
 })
