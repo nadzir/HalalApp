@@ -1,6 +1,6 @@
 import { get } from 'lodash'
 
-export const getItem = (state) => {
+export const getCurrentItem = (state) => {
   const items = get(state, 'image.items.logos', [])
   if (items.length === 0) {
     return {
@@ -23,4 +23,8 @@ export const getItem = (state) => {
       isHalal
     }
   }
+}
+
+export const getDbItems = (state) => {
+  return get(state, 'items.db', [])
 }

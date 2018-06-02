@@ -1,10 +1,10 @@
 import { connect } from 'react-redux'
 import { HighlightArea } from '../HighlightArea'
-import { getItems } from './HighlightArea.selector'
+import { getCurrentItems } from './HighlightArea.selector'
 
 const mapStateToProps = (state) => {
   return {
-    items: getItems(state)
+    items: getCurrentItems(state)
   }
 }
 

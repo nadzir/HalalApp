@@ -1,9 +1,10 @@
-import { HalalList, getItem } from '../HalalList'
+import { HalalList, getCurrentItem, getDbItems } from '../HalalList'
 import { connect } from 'react-redux'
 import { storeItemsScaleX, storeItemsScaleY } from '../../redux/actions'
-import { branch, renderComponent, compose } from 'recompose'
+import { branch, renderComponent, compose, lifecycle } from 'recompose'
 import { LoadingContainer } from '../../components/Loading'
 import { Actions } from 'react-native-router-flux'
+import { startFetchItems } from '../../redux/thunk/items'
 
 const mapStateToProps = (state) => {
   return {
@@ -12,7 +13,8 @@ const mapStateToProps = (state) => {
     scaleX: state.image.scaleX,
     scaleY: state.image.scaleY,
     isLoading: state.image.isLoading,
-    item: getItem(state)
+    item: getCurrentItem(state),
+    dbItems: getDbItems(state)
   }
 }
 
@@ -20,6 +22,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     storeScaleX: (scaleX) => dispatch(storeItemsScaleX(scaleX)),
     storeScaleY: (scaleY) => dispatch(storeItemsScaleY(scaleY)),
+    triggerFetchItems: () => dispatch(startFetchItems()),
     goToCameraView: Actions.camera
   }
 }
@@ -30,7 +33,14 @@ const withLoading = branch(
   renderComponent(LoadingContainer)
 )
 
+const withLifeCycle = lifecycle({
+  componentDidMount () {
+    this.props.triggerFetchItems()
+  }
+})
+
 export const HalalListContainer = compose(
   connect(mapStateToProps, mapDispatchToProps),
-  withLoading
+  withLoading,
+  withLifeCycle
 )(HalalList)
