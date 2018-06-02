@@ -20,7 +20,8 @@ export class HomeView extends Component {
 
   componentDidMount () {
     this.animate()
-    analytics.trackScreenView('Home')
+    analytics.logEvent('screen', {'name': 'Home'})
+    analytics.setCurrentScreen('Home')
   }
 
   createAnimation (value, duration, easing, delay = 0) {

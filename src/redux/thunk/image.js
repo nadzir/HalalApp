@@ -56,16 +56,16 @@ function getRandomElementFromArray (arr) {
 async function checkHalalItems (response) {
 // Get logo
   const logos = get(response, 'logoAnnotations', [])
-  if (logos.length === 0) { analytics.trackEvent('Google Image API', 'Logos returned from image', {label: 'No Logo Found', value: 1}) }
+  if (logos.length === 0) { analytics.logEvent('Google Image API - Logos returned from image', {label: 'No Logo Found', value: 1}) }
   try {
     const pArr = logos.map(async (logo) => {
-      analytics.trackEvent('Google Image API', 'Logos returned from image', {label: logo.description, value: 1})
+      analytics.logEvent('Google Image API- Logos returned from image', {label: logo.description, value: 1})
       const halalCheckResponse = await halalCheck(logo.description)
       const halal = JSON.parse(halalCheckResponse)
       const halalStatus = halal ? halal.halal_status : 'Not Found in list'
       if (halal) {
-        analytics.trackEvent('Halal Results', `Logos with halal status: ${halal.halal_status}`, {label: logo.description, value: 1})
-        analytics.trackEvent('Halal Results', `Items from database with halal status: ${halal.halal_status}`, {label: halal.name, value: 1})
+        analytics.logEvent(`Halal Results - Logos with halal status: ${halal.halal_status}`, {label: logo.description, value: 1})
+        analytics.logEvent(`Halal Results - Items from database with halal status: ${halal.halal_status}`, {label: halal.name, value: 1})
       }
       return {
         ...logo,

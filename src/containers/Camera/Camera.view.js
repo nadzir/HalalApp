@@ -13,7 +13,7 @@ export class CameraView extends Component {
   }
 
   componentDidMount () {
-    analytics.trackScreenView('Camera')
+    analytics.setCurrentScreen('Camera')
   }
 
   async takePicture () {

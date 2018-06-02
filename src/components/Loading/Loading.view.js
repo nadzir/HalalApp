@@ -5,8 +5,6 @@ import { HeaderTop } from '../Header'
 import { material, systemWeights } from 'react-native-typography'
 import { COLOURS } from '../../../config/constants'
 import Spinner from 'react-native-spinkit'
-// import { AdMobBanner } from 'react-native-admob'
-// import { BANNER_AD_UNIT_ID } from 'react-native-dotenv'
 
 export const Loading = ({imagePath, loadingText}) => {
   return (
@@ -25,11 +23,6 @@ export const Loading = ({imagePath, loadingText}) => {
           {loadingText}
         </Text>
       </View>
-      {/* <AdMobBanner
-          adSize='smartBannerPortrait'
-          adUnitID={BANNER_AD_UNIT_ID}
-          onAdFailedToLoad={error => console.error(error)}
-        /> */}
     </View>
   )
 }
