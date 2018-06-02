@@ -6,7 +6,7 @@ export const startFetchItems = () => {
     firebase.database()
       .ref('items')
       .orderByKey()
-      .limitToLast(10)
+      .limitToLast(5)
       .on('value', (itemsDb) => {
         const items = itemsDb.val()
         const itemsWithKeys = addKeytoItems(items)
