@@ -16,11 +16,13 @@ export function processImage (imagePath) {
     dispatch(storeImageItems())
 
     try {
-      // Resize image
-      const resizedImage = await resizeImage(imagePath, VIEW_WIDTH, VIEW_HEIGHT)
-      // dispatch(storeImagePath(resizedImage.path))
+      // Saved a smaller image for display
+      const savedImage = await resizeImage(imagePath, VIEW_WIDTH * 0.2, VIEW_HEIGHT * 0.2)
+      const savedImageBase64 = await convertImageToBase64(savedImage.path)
+      dispatch(storeImageBase64(savedImageBase64))
 
-      // Convert to Basee 64
+      // Convert to Base 64
+      const resizedImage = await resizeImage(imagePath, VIEW_WIDTH, VIEW_HEIGHT)
       const imageBase64 = await convertImageToBase64(resizedImage.path)
 
       // Get labels from image
@@ -31,11 +33,6 @@ export function processImage (imagePath) {
       dispatch(storeImageLoading(true, getLoadingText(LOADING_GET_HALAL)))
       const response = get(items, 'responses[0]', [])
       const logos = await checkHalalItems(response)
-
-      // Saved a smaller image
-      const savedImage = await resizeImage(imagePath, VIEW_WIDTH * 0.2, VIEW_HEIGHT * 0.2)
-      const savedImageBase64 = await convertImageToBase64(savedImage.path)
-      dispatch(storeImageBase64(savedImageBase64))
 
       dispatch(storeImageItems({logos}))
       dispatch(storeImageLoading(false))
