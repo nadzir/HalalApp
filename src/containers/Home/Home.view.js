@@ -71,7 +71,7 @@ export class HomeView extends Component {
                Try taking a photo{'\n'}
                of a brand{'\n'}
                or a logo{'\n'}
-               and check if it is halal.test
+               and check if it is halal.
             </Text>
 
           </Animated.View>
