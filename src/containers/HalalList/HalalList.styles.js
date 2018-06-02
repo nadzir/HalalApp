@@ -36,6 +36,24 @@ export const styles = StyleSheet.create({
     margin: 10,
     justifyContent: 'center',
     alignItems: 'center'
+  },
+  currentScanText: {
+    textAlign: 'center',
+    color: COLOURS.BRAND
+  },
+  currentScanTextView: {
+    marginTop: 20,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  scrollView: {
+    marginBottom: 120
+  },
+  divider: {
+    backgroundColor: 'white'
+  },
+  card: {
+    backgroundColor: COLOURS.CARD,
+    borderRadius: 5
   }
-
 })

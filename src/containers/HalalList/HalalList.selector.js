@@ -10,21 +10,12 @@ export const getCurrentItem = (state) => {
     }
   } else {
     const item = items[0]
-    const isHalal = get(item, 'halal.halal_status') === 'halal'
-
-    let subtitle = ''
-    if (isHalal) subtitle = 'It is Halal!'
-    else subtitle = 'Oops! Not in our Halal List'
-
     return {
-      ...item,
-      header: `${item.title}`,
-      subtitle,
-      isHalal
+      ...item
     }
   }
 }
 
 export const getDbItems = (state) => {
-  return get(state, 'items.db', [])
+  return get(state, 'items.db')
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, Image, Text, ScrollView } from 'react-native'
-import { Card, Button } from 'react-native-elements'
+import { Card, Button, Divider } from 'react-native-elements'
 import { styles } from '../HalalList'
 import { HeaderTop } from '../../components/Header'
 import { VIEW_WIDTH, VIEW_HEIGHT } from '../../../config/constants/size'
@@ -19,7 +19,7 @@ export const HalalList = ({
   item,
   dbItems
 }) => {
-  const itemDetails = () => {
+  const itemDetails = (item) => {
     return (
       <View style={{width: '100%', marginLeft: 20}}>
         <Text style={[systemWeights.bold, styles.cardDescTitle]}>Brand</Text>
@@ -50,26 +50,10 @@ export const HalalList = ({
   }
 
   const renderDbItems = () => {
-    return Object.values(dbItems).map(item => {
-      return item.imageBase64 && (<Card
-        title={item.header}>
-        <View style={{flexDirection: 'row', marginBottom: 10}}>
-          <Image
-            style={{height: VIEW_HEIGHT * 0.2, width: VIEW_WIDTH * 0.2}}
-            resizeMode='contain'
-            source={{uri: `data:image/gif;base64,${item.imageBase64}`}}
-          />
-          {/* {item.key === 1001 ? emptyItem() : itemDetails()} */}
-        </View>
-      </Card>)
-    })
-  }
-
-  return (
-    <View style={styles.mainView}>
-      <HeaderTop />
-      <ScrollView>
+    return dbItems && Object.values(dbItems).map(item => {
+      return item.imageBase64 && (
         <Card
+          containerStyle={styles.card}
           title={item.header}
           titleStyle={item.isHalal ? styles.cardTitleStyleHalal : styles.cardTitleStyleNotHalal}
         >
@@ -77,27 +61,60 @@ export const HalalList = ({
             <Image
               style={{height: VIEW_HEIGHT * 0.2, width: VIEW_WIDTH * 0.2}}
               resizeMode='contain'
+              source={{uri: `data:image/gif;base64,${item.imageBase64}`}}
+            />
+            {itemDetails(item)}
+          </View>
+        </Card>)
+    })
+  }
+
+  return (
+    <View style={styles.mainView}>
+      <HeaderTop />
+      <ScrollView style={styles.scrollView}>
+        <Card
+          title={item.header}
+          titleStyle={item.isHalal ? styles.cardTitleStyleHalal : styles.cardTitleStyleNotHalal}
+          containerStyle={styles.card}
+        >
+          <View style={{flexDirection: 'row', marginBottom: 10}}>
+            <Image
+              style={{height: VIEW_HEIGHT * 0.2, width: VIEW_WIDTH * 0.2}}
+              resizeMode='contain'
               source={{uri: `data:image/gif;base64,${imageBase64}`}}
             />
-            {item.key === 1001 ? emptyItem() : itemDetails()}
+            {item.key === 1001 ? emptyItem() : itemDetails(item)}
           </View>
         </Card>
 
+        <View style={styles.ads} >
+          <Banner
+            size={'BANNER'}
+            request={request.build()}
+            unitId={BANNER_AD_UNIT_ID}
+            onAdLoaded={() => {}}
+            onAdFailedToLoad={() => {
+            // console.error(err)
+            }}
+          />
+        </View>
+
+        {dbItems &&
+        <View>
+          <Divider style={styles.divider} />
+          <View style={styles.currentScanTextView}>
+            <Text style={[systemWeights.light, styles.currentScanText]}>
+           Latest Logos Captured
+            </Text>
+          </View>
+        </View>
+        }
+
         {renderDbItems()}
+
       </ScrollView>
 
-      <View style={styles.ads} >
-        <Banner
-          size={'BANNER'}
-          request={request.build()}
-          unitId={BANNER_AD_UNIT_ID}
-          onAdLoaded={() => {}}
-          onAdFailedToLoad={() => {
-            // console.error(err)
-          }}
-        />
-
-      </View>
       <View style={styles.cameraButtonStyle}>
         <Button
           buttonStyle={styles.button}

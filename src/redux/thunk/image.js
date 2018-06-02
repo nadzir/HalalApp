@@ -86,10 +86,11 @@ const checkEachItemForHalal = (logos) => {
     return {
       ...logo,
       key: logo.description,
-      title: logo.description,
+      header: logo.description,
       halal: halal,
       isHalal: halalStatus === 'halal',
-      source: halal.source
+      source: halal.source,
+      subtitle: halalStatus === 'halal' ? 'It is Halal!' : 'Oops! Not in our Halal List'
     }
   })
 }

@@ -7,5 +7,6 @@ export const COLOURS = {
   HALAL: '#26A65B',
   GREY: '#ABB7B7',
   BLACK: '#757D75',
-  NON_HALAL: '#ABB7B7'
+  NON_HALAL: '#ABB7B7',
+  CARD: 'white'
 }
