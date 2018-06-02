@@ -14,6 +14,7 @@
 		00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302E41ABCB9EE00DB3ED1 /* libRCTVibration.a */; };
 		00E356F31AD99517003FC87E /* HalalAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* HalalAppTests.m */; };
 		014F753620B92D14007BF269 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0119849D20B0ADFD00F77704 /* GoogleMobileAds.framework */; };
+		01617ABD20C2325C00C9554A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 01617A9020C2325C00C9554A /* GoogleService-Info.plist */; };
 		01CE1F01209E211A00880B9A /* libRCTGoogleAnalyticsBridge.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 01CE1EDC209E210F00880B9A /* libRCTGoogleAnalyticsBridge.a */; };
 		01CE1F43209E228D00880B9A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01CE1F16209E228C00880B9A /* CoreData.framework */; };
 		01CE1F45209E229600880B9A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01CE1F44209E229600880B9A /* SystemConfiguration.framework */; };
@@ -63,6 +64,7 @@
 		B0DA0788A2AA46FDBC5E2C12 /* libRNFetchBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8735467625844C319BB4BAE3 /* libRNFetchBlob.a */; };
 		B66F44C954B74275A7F56434 /* libRCTImageResizer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D4FF521DC57C42FBBEDB57B3 /* libRCTImageResizer.a */; };
 		D965605A9AC84A9D91FD87AA /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F0ADFAB163F440268F462FEE /* Zocial.ttf */; };
+		D9737E747F6F42208C412293 /* libRNFirebase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8EAA20199A6A454CB11A0BF8 /* libRNFirebase.a */; };
 		EDD239BD696343C38D2CFCD5 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E4D504442B1445FB842876F6 /* SimpleLineIcons.ttf */; };
 		FECDCA9496CA4D6A8B8DC01D /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC35B883C6A14266B936DE94 /* Ionicons.ttf */; };
 /* End PBXBuildFile section */
@@ -109,6 +111,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
 			remoteInfo = HalalApp;
+		};
+		01617B8D20C24D2600C9554A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE1128B05B4A488FA37BCE6F /* RNFirebase.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RNFirebase;
 		};
 		01866F872097872C008EC57F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -411,6 +420,7 @@
 		00E356F21AD99517003FC87E /* HalalAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HalalAppTests.m; sourceTree = "<group>"; };
 		0119849D20B0ADFD00F77704 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
 		0119849F20B0AE2900F77704 /* GoogleMobileAds */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = GoogleMobileAds; path = GoogleMobileAds.framework/GoogleMobileAds; sourceTree = "<group>"; };
+		01617A9020C2325C00C9554A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		01CE1E3F209D1C1500880B9A /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMobileAds.framework; path = "../../../../../../Downloads/GoogleMobileAdsSdkiOS-7.30.0/GoogleMobileAds.framework"; sourceTree = "<group>"; };
 		01CE1ED0209E210F00880B9A /* RCTGoogleAnalyticsBridge.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTGoogleAnalyticsBridge.xcodeproj; path = "../node_modules/react-native-google-analytics-bridge/ios/RCTGoogleAnalyticsBridge/RCTGoogleAnalyticsBridge.xcodeproj"; sourceTree = "<group>"; };
 		01CE1F16209E228C00880B9A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -453,6 +463,7 @@
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		8509A1DB93DB467A9AA1ED6A /* libRNVectorIcons.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNVectorIcons.a; sourceTree = "<group>"; };
 		8735467625844C319BB4BAE3 /* libRNFetchBlob.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNFetchBlob.a; sourceTree = "<group>"; };
+		8EAA20199A6A454CB11A0BF8 /* libRNFirebase.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNFirebase.a; sourceTree = "<group>"; };
 		906AD06EF9774701A2166730 /* RCTCamera.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RCTCamera.xcodeproj; path = "../node_modules/react-native-camera/ios/RCTCamera.xcodeproj"; sourceTree = "<group>"; };
 		9BDE6A112C4F459A9D8BC85B /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
 		9FFB3CF9CB994C4997BC67EB /* libRNSVG.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNSVG.a; sourceTree = "<group>"; };
@@ -463,6 +474,7 @@
 		BA45E589040DB0F42439310D /* Pods-HalalApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HalalApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HalalApp/Pods-HalalApp.debug.xcconfig"; sourceTree = "<group>"; };
 		C2C8DA3BDF155407096303BF /* Pods-HalalAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HalalAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HalalAppTests/Pods-HalalAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		C2DC69499CDF4E7CB445FD31 /* RCTImageResizer.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RCTImageResizer.xcodeproj; path = "../node_modules/react-native-image-resizer/ios/RCTImageResizer.xcodeproj"; sourceTree = "<group>"; };
+		CE1128B05B4A488FA37BCE6F /* RNFirebase.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNFirebase.xcodeproj; path = "../node_modules/react-native-firebase/ios/RNFirebase.xcodeproj"; sourceTree = "<group>"; };
 		D3328B08D72CE60E5642620F /* libPods-HalalApp-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HalalApp-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4FF521DC57C42FBBEDB57B3 /* libRCTImageResizer.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTImageResizer.a; sourceTree = "<group>"; };
 		DBA5E78FF239C9F1A1D6FABE /* libPods-HalalApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HalalApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -513,6 +525,7 @@
 				812E5273B4F7C47C456A8C40 /* libPods-HalalApp.a in Frameworks */,
 				01F7D6CA20BD488A00BC7585 /* libRNAdMobManager.a in Frameworks */,
 				01D094FA20BD7B8800E592A1 /* libRNSpinkit.a in Frameworks */,
+				D9737E747F6F42208C412293 /* libRNFirebase.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -602,6 +615,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		01617B8A20C24D2600C9554A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				01617B8E20C24D2600C9554A /* libRNFirebase.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		01866FA9209788C4008EC57F /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
@@ -612,6 +633,7 @@
 				03790A68157F4980B8BB0C99 /* libRNSVG-tvOS.a */,
 				8509A1DB93DB467A9AA1ED6A /* libRNVectorIcons.a */,
 				0CDDD90608C34EE2A7ADDDC6 /* libRNAdMobManager.a */,
+				8EAA20199A6A454CB11A0BF8 /* libRNFirebase.a */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -729,6 +751,7 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				01617A9020C2325C00C9554A /* GoogleService-Info.plist */,
 			);
 			name = HalalApp;
 			sourceTree = "<group>";
@@ -813,6 +836,7 @@
 				C2DC69499CDF4E7CB445FD31 /* RCTImageResizer.xcodeproj */,
 				6CE857188B44412885000AA9 /* RNSVG.xcodeproj */,
 				B162849AF339429D8D1694F9 /* RNVectorIcons.xcodeproj */,
+				CE1128B05B4A488FA37BCE6F /* RNFirebase.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -1067,6 +1091,10 @@
 					ProjectRef = 3BD6BB32DB63412C942EDEEA /* RNFetchBlob.xcodeproj */;
 				},
 				{
+					ProductGroup = 01617B8A20C24D2600C9554A /* Products */;
+					ProjectRef = CE1128B05B4A488FA37BCE6F /* RNFirebase.xcodeproj */;
+				},
+				{
 					ProductGroup = 01D094C720BD7B7200E592A1 /* Products */;
 					ProjectRef = 01D094C620BD7B7200E592A1 /* RNSpinkit.xcodeproj */;
 				},
@@ -1123,6 +1151,13 @@
 			fileType = archive.ar;
 			path = libRCTVibration.a;
 			remoteRef = 00C302E31ABCB9EE00DB3ED1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		01617B8E20C24D2600C9554A /* libRNFirebase.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNFirebase.a;
+			remoteRef = 01617B8D20C24D2600C9554A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		01866F882097872C008EC57F /* libRCTBlob-tvOS.a */ = {
@@ -1432,6 +1467,7 @@
 				15E117F61EDB45CE9915C90A /* Octicons.ttf in Resources */,
 				EDD239BD696343C38D2CFCD5 /* SimpleLineIcons.ttf in Resources */,
 				D965605A9AC84A9D91FD87AA /* Zocial.ttf in Resources */,
+				01617ABD20C2325C00C9554A /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1635,12 +1671,14 @@
 					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-admob/ios",
+					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
 				);
 				INFOPLIST_FILE = HalalAppTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1672,12 +1710,14 @@
 					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-admob/ios",
+					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
 				);
 				INFOPLIST_FILE = HalalAppTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1717,6 +1757,7 @@
 					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-admob/ios",
+					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
 				);
 				INFOPLIST_FILE = HalalApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1757,6 +1798,7 @@
 					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-admob/ios",
+					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
 				);
 				INFOPLIST_FILE = HalalApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1797,11 +1839,13 @@
 					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-admob/ios",
+					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
 				);
 				INFOPLIST_FILE = "HalalApp-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1843,11 +1887,13 @@
 					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-admob/ios",
+					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
 				);
 				INFOPLIST_FILE = "HalalApp-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1891,6 +1937,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.HalalApp-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1916,6 +1963,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",

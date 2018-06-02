@@ -6,11 +6,13 @@ target 'HalalApp' do
   # use_frameworks!
 
   # Pods for HalalApp
-  pod 'Google-Mobile-Ads-SDK'
+  pod 'Firebase/Core'
+  
+#  pod 'Google-Mobile-Ads-SDK'
 
-  pod 'react-native-google-analytics-bridge', :path => '../node_modules/react-native-google-analytics-bridge'
+#  pod 'react-native-google-analytics-bridge', :path => '../node_modules/react-native-google-analytics-bridge'
 
-  pod 'react-native-spinkit', :path => '../node_modules/react-native-spinkit'
+#  pod 'react-native-spinkit', :path => '../node_modules/react-native-spinkit'
 
   target 'HalalAppTests' do
     inherit! :search_paths

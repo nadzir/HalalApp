@@ -11,13 +11,15 @@
 
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
-@import GoogleMobileAds;
+//@import GoogleMobileAds;
+#import <Firebase.h>
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
   NSURL *jsCodeLocation;
+  [FIRApp configure];
 
   jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];
 
@@ -35,7 +37,7 @@
   
   // Initialize Google Mobile Ads SDK
   // Sample AdMob app ID: ca-app-pub-3940256099942544~1458002511
-  [GADMobileAds configureWithApplicationID:@"ca-app-pub-2753194854824423~2216734576"];
+//  [GADMobileAds configureWithApplicationID:@"ca-app-pub-2753194854824423~2216734576"];
   
   return YES;
 }
