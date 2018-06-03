@@ -56,3 +56,5 @@ buck-out/
 secret/
 .env
 ios/GoogleService-Info.plist
+android/app/google-services.json
+

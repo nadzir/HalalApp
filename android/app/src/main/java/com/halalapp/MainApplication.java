@@ -3,13 +3,16 @@ package com.halalapp;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
-import io.invertase.firebase.RNFirebasePackage;
-import com.react.rnspinkit.RNSpinkitPackage;
-import com.idehub.GoogleAnalyticsBridge.GoogleAnalyticsBridgePackage;
-import com.sbugert.rnadmob.RNAdMobPackage;
-import com.horcrux.svg.SvgPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
+import com.horcrux.svg.SvgPackage;
+import com.react.rnspinkit.RNSpinkitPackage;
 import fr.bamlab.rnimageresizer.ImageResizerPackage;
+import com.idehub.GoogleAnalyticsBridge.GoogleAnalyticsBridgePackage;
+import io.invertase.firebase.RNFirebasePackage;
+import io.invertase.firebase.admob.RNFirebaseAdMobPackage;
+import io.invertase.firebase.analytics.RNFirebaseAnalyticsPackage;
+import io.invertase.firebase.database.RNFirebaseDatabasePackage;
+
 import com.RNFetchBlob.RNFetchBlobPackage;
 import com.lwansbrough.RCTCamera.RCTCameraPackage;
 import com.facebook.react.ReactNativeHost;
@@ -32,15 +35,19 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
-            new RNFirebasePackage(),
-            new RNSpinkitPackage(),
-            new GoogleAnalyticsBridgePackage(),
-            new RNAdMobPackage(),
-            new SvgPackage(),
             new VectorIconsPackage(),
+            new SvgPackage(),
+            new RNSpinkitPackage(),
             new ImageResizerPackage(),
+            new GoogleAnalyticsBridgePackage(),
+            new RNFirebasePackage(),
             new RNFetchBlobPackage(),
-            new RCTCameraPackage()
+            new RCTCameraPackage(),
+            new RNFirebaseAnalyticsPackage(),
+            new RNFirebaseAdMobPackage(),
+            new RNFirebaseDatabasePackage()
+
+
       );
     }
 

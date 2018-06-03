@@ -23,7 +23,7 @@ const mapDispatchToProps = (dispatch) => {
     storeScaleX: (scaleX) => dispatch(storeItemsScaleX(scaleX)),
     storeScaleY: (scaleY) => dispatch(storeItemsScaleY(scaleY)),
     triggerFetchItems: () => dispatch(startFetchItems()),
-    goToCameraView: Actions.camera
+    goToCameraView: () => Actions.pop()
   }
 }
 
