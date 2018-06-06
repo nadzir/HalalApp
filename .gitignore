@@ -58,3 +58,5 @@ secret/
 ios/GoogleService-Info.plist
 android/app/google-services.json
 
+# Release APK
+android/app/release/
