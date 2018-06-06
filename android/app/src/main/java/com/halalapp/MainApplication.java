@@ -1,4 +1,4 @@
-package com.halalapp;
+package com.tempest.halalapp;
 
 import android.app.Application;
 

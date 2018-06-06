@@ -1,0 +1,2 @@
+json_key_file("../secret/api-4621157947702284409-203877-4d4e0bdb2a2b.json") # Path to the json secret file - Follow https://docs.fastlane.tools/actions/supply/#setup to get one
+package_name("com.tempest.halalapp") # e.g. com.krausefx.app
