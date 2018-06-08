@@ -1,11 +1,11 @@
-import firebase from '../../firebase'
+import firebase from '../../firebase/config'
 import { updateItems } from '../actions'
 
 export const startFetchItems = () => {
   return (dispatch) => {
     firebase.database()
       .ref('items')
-      .orderByKey()
+      .orderByChild('timestamp')
       .limitToLast(5)
       .on('value', (itemsDb) => {
         const items = itemsDb.val()

@@ -6,7 +6,12 @@ import { VIEW_WIDTH, VIEW_HEIGHT } from '../../../config/constants/size'
 import { halalCheck } from '../../lib/halal'
 import { analytics } from '../../analytics'
 import { LOADING_BEGIN, LOADING_GET_LABEL, LOADING_GET_HALAL } from '../../components/Loading/Loading.constants'
-import firebase from '../../firebase'
+import { removeToFiveItems, addItems } from '../../firebase'
+
+const DISPLAY = {
+  width: 80,
+  height: 140
+}
 
 export function processImage (imagePath) {
   return async (dispatch) => {
@@ -18,7 +23,7 @@ export function processImage (imagePath) {
 
     try {
       // Saved a smaller image for display
-      const savedImage = await resizeImage(imagePath, VIEW_WIDTH * 0.2, VIEW_HEIGHT * 0.2)
+      const savedImage = await resizeImage(imagePath, DISPLAY.width, DISPLAY.height)
       const savedImageBase64 = await convertImageToBase64(savedImage.path)
       dispatch(storeImageBase64(savedImageBase64))
 
@@ -98,11 +103,11 @@ const checkEachItemForHalal = (logos) => {
 // Currently only save one logo, as only display one
 const saveLogosInDB = (logos, savedImageBase64) => {
   if (logos.length > 0) {
-    firebase.database()
-      .ref('items')
-      .push({
-        ...logos[0],
-        imageBase64: savedImageBase64
-      })
+    removeToFiveItems()
+    addItems({
+      ...logos[0],
+      imageBase64: savedImageBase64,
+      timestamp: Date.now()
+    })
   }
 }
