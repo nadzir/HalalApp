@@ -60,3 +60,7 @@ android/app/google-services.json
 
 # Release APK
 android/app/release/
+
+# IOS and Android
+ios/
+android/

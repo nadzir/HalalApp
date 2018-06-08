@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">90.48% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>9/9</span>
+        <span class='fraction'>19/21</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -35,9 +35,9 @@
         <span class='fraction'>2/2</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">90.48% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>9/9</span>
+        <span class='fraction'>19/21</span>
       </div>
     </div>
   </div>
@@ -62,7 +62,44 @@
 17
 18
 19
-20</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -70,34 +107,96 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { convertImageToBase64, resizeImage } from '../../lib/imageUtil'
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { get } from 'lodash'
+import { saveLogosInDB } from '../../firebase'
+import { checkHalalItems } from '../../lib/halal'
+import { getLoadingText } from '../../lib/loading'
 import { getLabel } from '../../lib/imageProcessing'
-import { storeImagePath, storeImageItems, storeImageBase64 } from '../actions'
-import { get } from 'lodash'
+import { convertImageToBase64, resizeImage } from '../../lib/imageUtil'
+import { VIEW_WIDTH, VIEW_HEIGHT } from '../../../config/constants/size'
+import { LOADING_BEGIN, LOADING_GET_LABEL, LOADING_GET_HALAL } from '../../components/Loading'
+import { storeImagePath, storeImageItems, storeImageBase64, storeImageLoading } from '../actions'
+&nbsp;
+const DISPLAY = {
+  width: 80,
+  height: 140
+}
 &nbsp;
 export function processImage (imagePath) {
   return async (dispatch) =&gt; {
     // Reset
+    dispatch(storeImageLoading(true, getLoadingText(LOADING_BEGIN)))
     dispatch(storeImageBase64())
+    dispatch(storeImagePath())
+    dispatch(storeImageItems())
 &nbsp;
-    const resizedImage = await resizeImage(imagePath)
-    dispatch(storeImagePath(resizedImage.path))
-    const imageBase64 = await convertImageToBase64(resizedImage.path)
-    dispatch(storeImageBase64(imageBase64))
-    const items = await getLabel(imageBase64)
-    const response = get(items, 'responses[0]', [])
-    dispatch(storeImageItems(response))
+    try {
+      // Saved a smaller image for display
+      const savedImage = await resizeImage(imagePath, DISPLAY.width, DISPLAY.height)
+      const savedImageBase64 = await convertImageToBase64(savedImage.path)
+      dispatch(storeImageBase64(savedImageBase64))
+&nbsp;
+      // Convert to Base 64
+      const resizedImage = await resizeImage(imagePath, VIEW_WIDTH, VIEW_HEIGHT)
+      const imageBase64 = await convertImageToBase64(resizedImage.path)
+&nbsp;
+      // Get labels from image
+      dispatch(storeImageLoading(true, getLoadingText(LOADING_GET_LABEL)))
+      const items = await getLabel(imageBase64)
+&nbsp;
+      // Get halal response from labels
+      dispatch(storeImageLoading(true, getLoadingText(LOADING_GET_HALAL)))
+      const response = get(items, 'responses[0]', [])
+      const logos = await checkHalalItems(response)
+&nbsp;
+      // Save logos in firebase db
+      saveLogosInDB(logos, savedImageBase64)
+&nbsp;
+<span class="cstat-no" title="statement not covered" >      dispatch(storeImageItems({logos}))</span>
+<span class="cstat-no" title="statement not covered" >      dispatch(storeImageLoading(false))</span>
+    } catch (e) {
+      dispatch(storeImageLoading(false))
+    }
   }
 }
 &nbsp;</pre></td></tr>
@@ -106,7 +205,7 @@ export function processImage (imagePath) {
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sat Apr 21 2018 08:59:07 GMT+0800 (+08)
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Sat Jun 16 2018 20:46:23 GMT+0800 (+08)
 </div>
 </div>
 <script src="../../../prettify.js"></script>

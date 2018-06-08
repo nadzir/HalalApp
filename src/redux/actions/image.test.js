@@ -1,23 +1,37 @@
-import {
-    storeImagePath,
-    STORE_IMAGE_PATH,
-    STORE_IMAGE_BASE64,
-    STORE_IMAGE_ITEMS,
-    storeImageBase64,
-    storeImageItems
-} from '../actions'
+import { updateItems, UPDATE_ITEMS, UPDATE_DB, updateDB, startFetchItems, START_FETCH_ITEMS, stopFetchItems, STOP_FETCH_ITEMS } from './items'
 
 describe('action/image', () => {
-  it('should return correct action for storeImagePath()', () => {
-    expect(storeImagePath('path'))
-        .toEqual({type: STORE_IMAGE_PATH, path: 'path'})
+  it('should return correct action', () => {
+    expect(updateItems('items'))
+      .toEqual(
+        {
+          type: UPDATE_ITEMS,
+          items: 'items'
+        })
   })
-  it('should return correct action for storeImageBase64()', () => {
-    expect(storeImageBase64('base64'))
-        .toEqual({type: STORE_IMAGE_BASE64, base64: 'base64'})
+
+  it('should return correct action', () => {
+    expect(updateDB('items'))
+      .toEqual(
+        {
+          type: UPDATE_DB,
+          items: 'items'
+        })
   })
-  it('should return correct action for storeImageItems()', () => {
-    expect(storeImageItems('items'))
-        .toEqual({type: STORE_IMAGE_ITEMS, items: 'items'})
+
+  it('should return correct action', () => {
+    expect(startFetchItems())
+      .toEqual(
+        {
+          type: START_FETCH_ITEMS
+        })
+  })
+
+  it('should return correct action', () => {
+    expect(stopFetchItems())
+      .toEqual(
+        {
+          type: STOP_FETCH_ITEMS
+        })
   })
 })

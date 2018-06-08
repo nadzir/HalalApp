@@ -1,5 +1,4 @@
 import { getLabel } from '.'
-import fetch from 'jest-fetch-mock'
 
 describe('googleImageApi', () => {
   beforeAll(() => {

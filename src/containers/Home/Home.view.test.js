@@ -6,7 +6,8 @@ import renderer from 'react-test-renderer'
 jest.mock('../../analytics', () => {
   return {
     analytics: {
-      trackScreenView: () => {}
+      logEvent: () => {},
+      setCurrentScreen: () => {}
     }
   }
 })

@@ -32,19 +32,3 @@ export const storeImageItems = (items) => {
     items
   }
 }
-
-export const STORE_ITEMS_SCALE_X = 'STORE_ITEMS_SCALE_X'
-export const storeItemsScaleX = (scaleX) => {
-  return {
-    type: STORE_ITEMS_SCALE_X,
-    scaleX
-  }
-}
-
-export const STORE_ITEMS_SCALE_Y = 'STORE_ITEMS_SCALE_Y'
-export const storeItemsScaleY = (scaleY) => {
-  return {
-    type: STORE_ITEMS_SCALE_Y,
-    scaleY
-  }
-}

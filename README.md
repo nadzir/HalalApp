@@ -1,37 +1,30 @@
 # HalalApp
+> Detects logo and check if it is halal
 
-# Common Issues
+is-this-halal.com
 
-### Signing fails or resource fork, Finder information, or similar detritus not allowed
-Code signing no longer allows any file in an app bundle to have an extended attribute containing a resource fork or Finder info.
-Run the command below to rectify
-```
-xattr -cr .
-```
+Simpler ways to check if the brand is halal.
 
-### Cant log in error
-Run the command below 
-```
-defaults write com.apple.dt.Xcode DVTDeveloperAccountUseKeychainService -bool NO
-```
+== Capture Logo == 
+Make the magic happen by capturing a logo or brand using your mobile phone. We went to four years in Hogwarts to learn this spell.
 
-### App crashed when open react native camera
-Add a permission to ios
-Remember to rerun react-native run-ios
-```
-	<key>NSCameraUsageDescription</key>
-	<string>$(PRODUCT_NAME) needs to access camera</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
-	<key>NSMicrophoneUsageDescription</key>
-	<string>$(PRODUCT_NAME) needs to access microphone</string>
-	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>$(PRODUCT_NAME) needs to save photos</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>$(PRODUCT_NAME) needs to access photo library</string>
-```
+== Logo Detection == 
+We learn machine language and taught machines all over the world to recognize logos within an image. Please be patient if it fails sometimes. We are looking for extra tuition for them.
 
+== Halal Status == 
+We send out spiders all over the web to crawl and consolidate halal listing from various webs. We are hoping Spiderman would revive in the next Avengers movie so we could hire him as our Crawler Lead.
 
-### Need to link and test in android
+== Disclaimer == 
+We are experimenting. May not be 100% accurate. Look out for the halal certification also. Please give us feedback.
 
--  https://github.com/idehub/react-native-google-analytics-bridge/wiki/Manual-installation
+![](documentation/images/screenshot1.jpg)
+![](documentation/images/screenshot2.jpg)
+![](documentation/images/screenshot3.jpg)
+
+---
+
+## Links
+
+[Common issues](documentation/commonissues.md)
+
+[Site](is-this-halal.com)

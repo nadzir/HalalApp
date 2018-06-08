@@ -15,7 +15,7 @@ export const startFetchItems = () => {
   }
 }
 
-const addKeytoItems = (items) => {
+export const addKeytoItems = (items) => {
   return Object.keys(items).map((key) => {
     const item = items[key]
     return {

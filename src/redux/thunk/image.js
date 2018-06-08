@@ -1,12 +1,12 @@
-import { convertImageToBase64, resizeImage } from '../../lib/imageUtil'
-import { getLabel } from '../../lib/imageProcessing'
-import { storeImagePath, storeImageItems, storeImageBase64, storeImageLoading } from '../actions'
 import { get } from 'lodash'
+import { saveLogosInDB } from '../../firebase'
+import { checkHalalItems } from '../../lib/halal'
+import { getLoadingText } from '../../lib/loading'
+import { getLabel } from '../../lib/imageProcessing'
+import { convertImageToBase64, resizeImage } from '../../lib/imageUtil'
 import { VIEW_WIDTH, VIEW_HEIGHT } from '../../../config/constants/size'
-import { halalCheck } from '../../lib/halal'
-import { analytics } from '../../analytics'
-import { LOADING_BEGIN, LOADING_GET_LABEL, LOADING_GET_HALAL } from '../../components/Loading/Loading.constants'
-import { removeToFiveItems, addItems } from '../../firebase'
+import { LOADING_BEGIN, LOADING_GET_LABEL, LOADING_GET_HALAL } from '../../components/Loading'
+import { storeImagePath, storeImageItems, storeImageBase64, storeImageLoading } from '../actions'
 
 const DISPLAY = {
   width: 80,
@@ -48,66 +48,5 @@ export function processImage (imagePath) {
     } catch (e) {
       dispatch(storeImageLoading(false))
     }
-  }
-}
-
-function getLoadingText (textList) {
-  return getRandomElementFromArray(textList)
-}
-
-function getRandomElementFromArray (arr) {
-  return arr[Math.floor(Math.random() * arr.length)]
-}
-
-async function checkHalalItems (response) {
-  const logos = getLogosFromResponse(response)
-  try {
-    const pArr = checkEachItemForHalal(logos)
-    return Promise.all(pArr)
-  } catch (e) { console.error(e) }
-}
-
-const getLogosFromResponse = (response) => get(response, 'logoAnnotations', [])
-
-const checkEachItemForHalal = (logos) => {
-  // Send analytics if no logos
-  if (logos.length === 0) { analytics.logEvent('Google_Image_API', {label: 'No Logo Found', value: 1}) }
-
-  return logos.map(async (logo) => {
-    // Send analytics
-    analytics.logEvent('Google_Image_API', {label: logo.description, value: 1})
-
-    const halalCheckResponse = await halalCheck(logo.description)
-    const halal = JSON.parse(halalCheckResponse)
-    const halalStatus = halal ? halal.halal_status : 'Not Found in list'
-
-    if (halal) {
-      analytics.logEvent(`Halal_Results`, {label: logo.description, value: 1})
-      analytics.logEvent(`Matched_Items_from_DB`, {label: halal.name, value: 1})
-    } else {
-      analytics.logEvent(`Not_Halal_Results`, {label: logo.description, value: 1})
-    }
-
-    return {
-      ...logo,
-      key: logo.description,
-      header: logo.description,
-      halal: halal,
-      isHalal: halalStatus === 'halal',
-      source: halal.source,
-      subtitle: halalStatus === 'halal' ? 'It is Halal!' : 'Oops! Not in our Halal List'
-    }
-  })
-}
-
-// Currently only save one logo, as only display one
-const saveLogosInDB = (logos, savedImageBase64) => {
-  if (logos.length > 0) {
-    removeToFiveItems()
-    addItems({
-      ...logos[0],
-      imageBase64: savedImageBase64,
-      timestamp: Date.now()
-    })
   }
 }

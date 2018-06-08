@@ -1,12 +1,13 @@
 import Camera from 'react-native-camera'
 import React, { Component } from 'react'
-import { View } from 'react-native'
+import { View, PermissionsAndroid, Platform } from 'react-native'
 import { styles } from '../Camera'
 import { HeaderTop } from '../../components/Header'
 import { Button, Text } from 'react-native-elements'
 import { analytics } from '../../analytics'
 import { COLOURS } from '../../../config/constants'
 import { material, systemWeights } from 'react-native-typography'
+
 export class CameraView extends Component {
   constructor (props) {
     super(props)
@@ -15,6 +16,28 @@ export class CameraView extends Component {
 
   componentDidMount () {
     analytics.setCurrentScreen('Camera')
+    if (Platform.OS === 'android') {
+      this.requestPermission(PermissionsAndroid.PERMISSIONS.CAMERA, 'Camera Permission', 'Is This Halal App needs camera access so you can take pictures to check if it is halal')
+      this.requestPermission(PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE, 'Read Storage Permission', 'Is This Halal App needs to read your storage to analyse the image taken')
+      this.requestPermission(PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE, 'Write Storage Permission', 'Is This Halal App needs to store images to your storage')
+    }
+  }
+
+  async requestPermission (permission, title, message) {
+    try {
+      const check = PermissionsAndroid.check(permission)
+      if (check === PermissionsAndroid.RESULTS.GRANTED) return
+
+      await PermissionsAndroid.request(
+        permission,
+        {
+          'title': title,
+          'message': message
+        }
+      )
+    } catch (err) {
+      console.warn(err)
+    }
   }
 
   async takePicture () {

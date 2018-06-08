@@ -4,17 +4,9 @@ import { HomeView } from '../containers/Home'
 import { CameraViewContainer } from '../containers/Camera'
 import { HalalFinderContainer } from '../containers/HalalFinder'
 import { HalalListContainer } from '../containers/HalalList'
-// import { TransitionView } from '../containers/Transition'
-import { LoadingContainer } from '../components/Loading'
 
 export default Actions.create(
   <Scene key='root' hideNavBar='false' >
-    {/* <Scene
-      hideNavBar
-      key='loading'
-      component={LoadingContainer}
-      analyticsDesc='CameraView'
-    /> */}
     <Scene
       hideNavBar
       key='home'
@@ -39,12 +31,5 @@ export default Actions.create(
       component={HalalListContainer}
       analyticsDesc='HalalList'
     />
-    {/* <Scene
-      hideNavBar
-      key='transition'
-      component={TransitionView}
-      analyticsDesc='Transition'
-    /> */}
-
   </Scene>
 )

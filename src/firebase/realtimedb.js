@@ -21,3 +21,15 @@ export const addItems = (item) => {
     .ref('items')
     .push(item)
 }
+
+// Currently only save one logo, as only display one
+export const saveLogosInDB = (logos, savedImageBase64) => {
+  if (logos.length > 0) {
+    removeToFiveItems()
+    addItems({
+      ...logos[0],
+      imageBase64: savedImageBase64,
+      timestamp: Date.now()
+    })
+  }
+}
