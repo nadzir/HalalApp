@@ -3,9 +3,10 @@ import React, { Component } from 'react'
 import { View } from 'react-native'
 import { styles } from '../Camera'
 import { HeaderTop } from '../../components/Header'
-import { Button } from 'react-native-elements'
+import { Button, Text } from 'react-native-elements'
 import { analytics } from '../../analytics'
 import { COLOURS } from '../../../config/constants'
+import { material, systemWeights } from 'react-native-typography'
 export class CameraView extends Component {
   constructor (props) {
     super(props)
@@ -36,6 +37,11 @@ export class CameraView extends Component {
           aspect={Camera.constants.Aspect.fill}
           captureTarget={Camera.constants.CaptureTarget.disk}
         />
+        <View style={styles.textView}>
+          <Text style={[material.subheading, systemWeights.light, styles.text]} h4>
+          Photos will be uploaded and shared
+          </Text>
+        </View>
         <View style={styles.bottomView}>
           <Button
             buttonStyle={styles.button}

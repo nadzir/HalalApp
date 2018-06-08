@@ -20,6 +20,13 @@ export const styles = StyleSheet.create({
     height: 100,
     justifyContent: 'center'
   },
+  textView: {
+    alignItems: 'center',
+    backgroundColor: COLOURS.WHITE
+  },
+  text: {
+    color: COLOURS.BRAND
+  },
   button: {
     backgroundColor: COLOURS.WHITE,
     borderColor: COLOURS.BRAND,
