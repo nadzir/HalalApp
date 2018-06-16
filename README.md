@@ -17,9 +17,9 @@ We send out spiders all over the web to crawl and consolidate halal listing from
 == Disclaimer == 
 We are experimenting. May not be 100% accurate. Look out for the halal certification also. Please give us feedback.
 
-![](documentation/images/screenshot1.jpg)
-![](documentation/images/screenshot2.jpg)
-![](documentation/images/screenshot3.jpg)
+<img src="documentation/images/screenshot1.jpg" width="200">
+<img src="documentation/images/screenshot2.jpg" width="200">
+<img src="documentation/images/screenshot3.jpg" width="200">
 
 ---
 
