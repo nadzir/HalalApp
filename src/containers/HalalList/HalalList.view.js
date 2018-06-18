@@ -61,7 +61,7 @@ export const HalalList = ({
             <Image
               style={{height: VIEW_HEIGHT * 0.2, width: VIEW_WIDTH * 0.2}}
               resizeMode='contain'
-              source={{uri: `data:image/gif;base64,${item.imageBase64}`}}
+              source={{uri: `data:image/png;base64,${item.imageBase64}`}}
             />
             {itemDetails(item)}
           </View>
@@ -82,7 +82,7 @@ export const HalalList = ({
             <Image
               style={{height: VIEW_HEIGHT * 0.2, width: VIEW_WIDTH * 0.2}}
               resizeMode='contain'
-              source={{uri: `data:image/gif;base64,${imageBase64}`}}
+              source={{uri: `data:image/png;base64,${imageBase64}`}}
             />
             {item.key === 1001 ? emptyItem() : itemDetails(item)}
           </View>
